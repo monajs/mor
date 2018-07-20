@@ -5,15 +5,15 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
+//选择挂在节点
 export default class MountRoot extends Component {
 	static defaultProps = {
-		//延迟关闭时间(毫秒)
-		closeDelay: 0
+		closeDelay: 0			//延迟关闭时间(毫秒)
 	}
 	
 	componentDidMount () {
 		if (this.props.visible) {
-			this._mountRoot(this.props)
+			this.mountRoot(this.props)
 		}
 	}
 	
@@ -27,35 +27,36 @@ export default class MountRoot extends Component {
 	}
 	
 	componentWillReceiveProps (nextProps) {
-		// 显示
+		//显示
 		if (nextProps.visible && !this.props.visible) {
-			this._mountRoot(nextProps)
+			this.mountRoot(nextProps)
 		}
-		// 卸载
+		//卸载
 		if (this.props.visible && !nextProps.visible) {
 			if (this.props.closeDelay) {
-				this._domRender(nextProps)
+				this.domRender(nextProps)
 			}
 			setTimeout(() => {
 				ReactDOM.unmountComponentAtNode(this.node)
 				this.node.remove()
 			}, this.props.closeDelay)
 		} else if (nextProps.visible) {
-			this._domRender(nextProps)
+			this.domRender(nextProps)
 		}
 	}
 	
-	_mountRoot (props) {
+	mountRoot (props) {
 		this.node = document.createElement('div')
+		this.node.className = props.className || ''
 		let rootDom = document.getElementsByTagName('body')[0]
 		if (this.props.getContainer) {
 			rootDom = this.props.getContainer()
 		}
 		rootDom.appendChild(this.node)
-		this._domRender(props)
+		this.domRender(props)
 	}
 	
-	_domRender (props) {
+	domRender (props) {
 		ReactDOM.render(props.children, this.node)
 	}
 	
@@ -63,3 +64,4 @@ export default class MountRoot extends Component {
 		return null
 	}
 }
+

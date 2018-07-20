@@ -5,7 +5,11 @@ export default class Test extends Component {
 	visible = false
 	
 	open () {
-		Toast.config(123)
+		Toast.config({
+			message: 123,
+			duration: 1500,
+			type: 'error'
+		})
 	}
 	
 	render () {
