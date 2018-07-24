@@ -5,7 +5,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
-//选择挂在节点
 export default class MountRoot extends Component {
 	static defaultProps = {
 		closeDelay: 0			//延迟关闭时间(毫秒)

@@ -2,6 +2,7 @@ import Index from 'views/index'
 import Hammer from 'views/hammer'
 import MountRoot from 'views/mount-root'
 import Toast from 'views/toast'
+import Modal from 'views/modal'
 
 export default {
 	index: 'index',
@@ -10,6 +11,7 @@ export default {
 		'index': Index,
 		'hammer': Hammer,
 		'mount-root': MountRoot,
-		'toast': Toast
+		'toast': Toast,
+		'modal': Modal
 	}
 }
