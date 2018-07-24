@@ -8,8 +8,8 @@ export default class Test extends Component {
 		// this.visible = true
 		// this.setState({})
 		Modal.confirm({
-			title: 123,
-			content: 321,
+			title: '<div>fdsddsdssd</div>',
+			content: '<div>fdsdsd</div>',
 			confirmText: '知道了',
 			cancelText: '不要了',
 			onConfirm () {

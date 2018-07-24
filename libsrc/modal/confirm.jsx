@@ -9,7 +9,7 @@ export default class Confirm extends Component {
 		} = this.props.options
 		return (
 			<Modal {...props}>
-				{content}
+				<span dangerouslySetInnerHTML={{ __html: content }}></span>
 			</Modal>
 		)
 	}

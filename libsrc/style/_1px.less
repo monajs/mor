@@ -1,0 +1,135 @@
+.mona-b-t {
+	border-top: 1px solid @border-color;
+}
+
+.mona-b-b {
+	border-bottom: 1px solid @border-color
+}
+
+.mona-b-tb {
+	border-top: @border-color 1px solid;
+	border-bottom: @border-color 1px solid;
+	background-image: none;
+}
+
+.mona-b-l {
+	border-left: 1px solid @border-color;
+}
+
+.mona-b-r {
+	border-right: 1px solid @border-color;
+}
+
+.mona-b {
+	border: 1px solid @border-color;
+}
+
+.border-radius(@border-color: @border-color,@border-radius: 3px,@border-before-radius: 5px) {
+	border: 1px solid @border-color;
+	border-radius: @border-radius;
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		position: relative;
+		border: 0;
+		&:before {
+			content: "";
+			width: 200%;
+			height: 200%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			border: 1px solid @border-color;
+			-webkit-transform: scale(.5);
+			-webkit-transform-origin: 0 0;
+			padding: 1px;
+			-webkit-box-sizing: border-box;
+			border-radius: @border-before-radius;
+			pointer-events: none;
+		}
+	}
+}
+
+.border-pixel(@p) {
+	@media screen and (-webkit-min-device-pixel-ratio: @p) {
+		@border-t: -webkit-gradient(linear, left bottom, left top, color-stop(1/@p, rgba(0, 0, 0, 0)), color-stop(1/@p, @border-color));
+		@border-b: -webkit-gradient(linear, left top, left bottom, color-stop(1/@p, rgba(0, 0, 0, 0)), color-stop(1/@p, @border-color));
+		@border-l: -webkit-gradient(linear, right top, left top, color-stop(1/@p, rgba(0, 0, 0, 0)), color-stop(1/@p, @border-color));
+		@border-r: -webkit-gradient(linear, left top, right top, color-stop(1/@p, rgba(0, 0, 0, 0)), color-stop(1/@p, @border-color));
+
+
+		.mona-b {
+			position: relative;
+			border: 0;
+		}
+
+		.mona-b-t, .mona-b-b, .mona-b-l, .mona-b-r, .mona-b-tb {
+			border: 0;
+		}
+
+		.mona-b-t {
+			background-position: left top;
+			background-image: @border-t;
+		}
+
+		.mona-b-b {
+			background-position: left bottom;
+			background-image: @border-b;
+		}
+
+		.mona-b-t,
+		.mona-b-b,
+		.mona-b-tb {
+			background-repeat: repeat-x;
+			-webkit-background-size: 100% 1px;
+		}
+
+		.mona-b-tb {
+			background-image: @border-t, @border-b;
+			background-position: top, bottom;
+		}
+
+		.mona-b-l {
+			background-position: left top;
+			background-image: @border-l;
+		}
+
+		.mona-b-r {
+			background-position: right top;
+			background-image: @border-r;
+		}
+
+		.mona-b-l,
+		.mona-b-r {
+			background-repeat: repeat-y;
+			-webkit-background-size: 1px 100%;
+		}
+
+		.mona-b:after {
+			content: "";
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-image: @border-t, @border-r, @border-b, @border-l;
+			-webkit-background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+			background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+			background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+			background-repeat: no-repeat;
+			background-position: top, right, bottom, left;
+			padding: 1px;
+			-webkit-box-sizing: border-box;
+			z-index: 5;
+			pointer-events: none;
+		}
+	}
+}
+
+.mona-b-radius {
+	.border-radius()
+}
+
+.border-pixel(1.5);
+.border-pixel(2);
+.border-pixel(2.6);
+.border-pixel(3);
+

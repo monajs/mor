@@ -111,13 +111,13 @@ export default class Modal extends Component {
 						<If condition={title}>
 							<div className="mona-modal-header" dangerouslySetInnerHTML={{ __html: title }}></div>
 						</If>
-						<div className={classNames('mona-modal-body title', { 'no-title': !title })}>
+						<div className={classNames('mona-modal-body mona-b-b title', { 'no-title': !title })}>
 							{children}
 						</div>
 						<If condition={footer}>
 							<div className="mona-modal-footer d-f">
 								<If condition={enableCancel}>
-									<div className="flex-1 cancel h-full flex-center" onClick={this.cancel.bind(this, 'button')}>{cancelText}</div>
+									<div className="flex-1 cancel h-full flex-center mona-b-r" onClick={this.cancel.bind(this, 'button')}>{cancelText}</div>
 								</If>
 								<div className="flex-1 confirm h-full flex-center" onClick={this.confirm.bind(this)}>{confirmText}</div>
 							</div>
