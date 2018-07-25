@@ -45,14 +45,16 @@ export default class MountRoot extends Component {
 	}
 	
 	mountRoot (props) {
+		const { onMounted, getContainer, className } = props
 		this.node = document.createElement('div')
-		this.node.className = props.className || ''
-		let rootDom = document.getElementsByTagName('body')[0]
-		if (this.props.getContainer) {
-			rootDom = this.props.getContainer()
-		}
+		this.node.className = className || ''
+		let rootDom = document.body
+		getContainer && (rootDom = getContainer())
 		rootDom.appendChild(this.node)
 		this.domRender(props)
+		setTimeout(() => {
+			onMounted && onMounted()
+		})
 	}
 	
 	domRender (props) {

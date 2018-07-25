@@ -4,6 +4,7 @@ import MountRoot from 'views/mount-root'
 import Toast from 'views/toast'
 import Modal from 'views/modal'
 import PickerView from 'views/picker-view'
+import Popup from 'views/popup'
 
 export default {
 	index: 'index',
@@ -14,6 +15,7 @@ export default {
 		'mount-root': MountRoot,
 		'toast': Toast,
 		'modal': Modal,
-		'picker-view': PickerView
+		'picker-view': PickerView,
+		'popup': Popup
 	}
 }

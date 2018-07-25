@@ -10,7 +10,7 @@ import Tool from '../tool'
 export default class PickerView extends Component {
 	static defaultProps = {
 		keyType: 'key-value',	// 数据结构类型
-		nameKey: 'name',
+		nameKey: 'name',	//  目前没用
 		valueKey: 'value',
 		source: [],
 		cellHeight: 34	// 单元格高度
@@ -29,7 +29,6 @@ export default class PickerView extends Component {
 	componentDidMount () {
 		const { defaultValue, cellHeight } = this.props
 		this.wrap = this.refs.wrap
-		console.log(this.wrap)
 		if (defaultValue) {
 			const index = this.getIndex(defaultValue)
 			this.setIndex(index, false)
