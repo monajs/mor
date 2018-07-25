@@ -5,6 +5,7 @@ import Toast from 'views/toast'
 import Modal from 'views/modal'
 import PickerView from 'views/picker-view'
 import Popup from 'views/popup'
+import Layout from 'views/layout'
 
 export default {
 	index: 'index',
@@ -16,6 +17,7 @@ export default {
 		'toast': Toast,
 		'modal': Modal,
 		'picker-view': PickerView,
-		'popup': Popup
+		'popup': Popup,
+		'layout': Layout
 	}
 }
