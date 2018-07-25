@@ -157,13 +157,26 @@ export default class Hammer extends Component {
 	}
 	
 	render () {
-		const { style, pan, touchstart, panstart, panmove, panend, pancancel, options, setUp, ...props } = this.props
-		let sty = Object.assign({}, style, {
+		const {
+			style,
+			pan,
+			touchstart,
+			panstart,
+			panmove,
+			panend,
+			pancancel,
+			options,
+			setUp,
+			...props
+		} = this.props
+		
+		const sty = Object.assign({}, style, {
 			touchAction: 'auto',
 			userSelect: 'none',
 			WebkitUserDrag: 'none',
 			WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)'
 		})
+		
 		return (
 			<div ref="hammer" {...props} style={sty}>
 				{this.props.children}

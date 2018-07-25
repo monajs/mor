@@ -52,12 +52,14 @@
 		"webpack-dev-server": "^2.9.7"
 	},
 	"dependencies": {
+		"axios": "^0.17.1",
 		"classnames": "2.2.5",
 		"es6-promise": "3.2.1",
+		"fastclick": "1.0.6",
+		"moreact": "0.0.9",
+		"moreact-dom": "0.0.2",
 		"react": "15.6.1",
 		"react-dom": "15.6.1",
-		"uglifyjs-webpack-plugin": "^0.4.6",
-		"axios": "^0.17.1",
-		"fastclick": "1.0.6"
+		"uglifyjs-webpack-plugin": "^0.4.6"
 	}
 }

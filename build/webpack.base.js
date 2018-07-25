@@ -24,9 +24,11 @@ module.exports = {
 			'mona': path.resolve(__dirname, '../'),
 			'src': path.resolve(__dirname, '../src'),
 			'react': path.resolve('./node_modules/react'),
+			// 'react': path.resolve('./node_modules/moreact'),
 			'classnames': path.resolve('./node_modules/classnames'),
 			'autoprefixer': path.resolve('./node_modules/autoprefixer'),
 			'react-dom': path.resolve('./node_modules/react-dom'),
+			// 'react-dom': path.resolve('./node_modules/moreact-dom'),
 		},
 	},
 	resolveLoader: {

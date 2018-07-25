@@ -3,6 +3,7 @@ import Hammer from 'views/hammer'
 import MountRoot from 'views/mount-root'
 import Toast from 'views/toast'
 import Modal from 'views/modal'
+import PickerView from 'views/picker-view'
 
 export default {
 	index: 'index',
@@ -12,6 +13,7 @@ export default {
 		'hammer': Hammer,
 		'mount-root': MountRoot,
 		'toast': Toast,
-		'modal': Modal
+		'modal': Modal,
+		'picker-view': PickerView
 	}
 }
