@@ -54,7 +54,7 @@ export default class MountRoot extends Component {
 		this.domRender(props)
 		setTimeout(() => {
 			onMounted && onMounted()
-		})
+		}, 10)
 	}
 	
 	domRender (props) {

@@ -9,7 +9,8 @@ import Tool from '../tool'
 
 export default class Popup extends Component {
 	static defaultProps = {
-		maskClosable: true
+		maskClosable: true,
+		animate: true
 	}
 	
 	componentWillMount () {

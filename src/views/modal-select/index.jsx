@@ -36,8 +36,8 @@ export default class Test extends Component {
 			onConfirm: (data) => {
 				this.value = data
 			},
-			onCancel: () => {
-				console.log('cancel')
+			onCancel: (type) => {
+				console.log(type)
 			}
 		})
 	}

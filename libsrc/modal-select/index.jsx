@@ -59,6 +59,9 @@ export default class ModalSelect extends Component {
 	}
 	
 	select (index) {
+		if (index === this.selectedIndex) {
+			return
+		}
 		this.selectedIndex = index
 		this.setState({})
 	}

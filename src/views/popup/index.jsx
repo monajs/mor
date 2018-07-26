@@ -17,7 +17,7 @@ export default class Test extends Component {
 		return (
 			<div className="full">
 				<div style={{height: '1200px'}} onClick={this.open.bind(this)}>open</div>
-				<Popup visible={this.visible} placement="bottom" animate={true}>
+				<Popup visible={this.visible} placement="bottom">
 					<div style={{ height: '286px' }} className="w-full bg-white">
 						<button onClick={this.close.bind(this)}>关闭</button>
 					</div>
