@@ -6,6 +6,7 @@ import Modal from 'views/modal'
 import PickerView from 'views/picker-view'
 import Popup from 'views/popup'
 import Layout from 'views/layout'
+import ModalSelect from 'views/modal-select'
 
 export default {
 	index: 'index',
@@ -18,6 +19,7 @@ export default {
 		'modal': Modal,
 		'picker-view': PickerView,
 		'popup': Popup,
-		'layout': Layout
+		'layout': Layout,
+		'modal-select': ModalSelect
 	}
 }

@@ -1,0 +1,37 @@
+.mona-modal-select {
+	background-color: @modalSelectWrapBgColor;
+	.mona-modal-select-header {
+		.item {
+			font-size: @modalSelectHeaderFontSize;
+			height: @modalSelectHeaderHeight;
+			padding: 0 16px;
+			color: @modalSelectHeaderColor;
+		}
+	}
+	.mona-modal-select-body {
+		max-height: 280px;
+		min-height: 200px;
+	}
+	.mona-modal-select-item {
+		height: @modalSelectItemHeight;
+		font-size: @modalSelectItemFontSize;
+		padding: 0 40px 0 20px;
+		color: @modalSelectItemColor;
+		line-height: 1;
+		&.selected {
+			background-color: @modalSelectItemSelectedBg;
+			&:after {
+				content: '';
+				display: block;
+				background: url(@modalSelectItemSelectedIcon) center no-repeat;
+				width: 16px;
+				height: 12px;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				right: 20px;
+				background-size: cover;
+			}
+		}
+	}
+}
