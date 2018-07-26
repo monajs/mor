@@ -12,14 +12,14 @@ export default class Test extends Component {
 	
 	componentWillMount () {
 		for (let i = 0; i < 100; i++) {
-			this.source.push({ value: 2000 + i + '年' })
+			this.source.push(2000 + i + '年')
 		}
 	}
 	
 	render () {
 		return (
 			<div className="full">
-				<PickerView source={this.source} defaultValue={this.year} onChange={this.getValue.bind(this)} />
+				<PickerView source={this.source} isKv={false} defaultValue={this.year} onChange={this.getValue.bind(this)} />
 			</div>
 		)
 	}

@@ -9,7 +9,7 @@ import Tool from '../tool'
 
 export default class PickerView extends Component {
 	static defaultProps = {
-		keyType: 'key-value',	// 数据结构类型
+		isKv: true,	// 数据结构类型
 		nameKey: 'name',	//  目前没用
 		valueKey: 'value',
 		source: [],
@@ -51,9 +51,9 @@ export default class PickerView extends Component {
 	
 	// 获取下标
 	getIndex (value) {
-		const { keyType, valueKey } = this.props
+		const { isKv, valueKey } = this.props
 		let index = 0
-		if (keyType === 'key-value') {
+		if (isKv) {
 			this.list.forEach((v, i) => {
 				v[valueKey] === value && (index = i)
 			})
@@ -161,7 +161,7 @@ export default class PickerView extends Component {
 	render () {
 		const {
 			className,
-			keyType,
+			isKv,
 			valueKey,
 			cellHeight
 		} = this.props
@@ -170,7 +170,7 @@ export default class PickerView extends Component {
 				<div className="h-full flex-center">
 					<div className="mona-picker-view-wrap" ref="wrap" style={{ height: `${cellHeight}px` }}>
 						<Choose>
-							<When condition={keyType === 'key-value'}>
+							<When condition={isKv}>
 								<For each="item" of={this.list}>
 									<div className="mona-picker-view-item"
 										key={item[valueKey]}
