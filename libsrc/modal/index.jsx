@@ -39,6 +39,9 @@ export default class Modal extends Component {
 	}
 	
 	componentWillReceiveProps (nextProps) {
+		if (nextProps.visible === this.visible) {
+			return
+		}
 		if (nextProps.visible === true) {
 			this.show()
 		}

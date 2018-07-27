@@ -23,6 +23,9 @@ export default class Popup extends Component {
 	showWrap = false
 	
 	componentWillReceiveProps (nextProps) {
+		if (nextProps.visible === this.visible) {
+			return
+		}
 		if (nextProps.visible === true) {
 			this.show()
 		} else if (nextProps.visible === false) {

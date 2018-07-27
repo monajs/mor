@@ -52,6 +52,7 @@ export default class PickerView extends Component {
 	// 获取下标
 	getIndex (value) {
 		const { isKv, valueKey } = this.props
+		value = typeof value === 'object' ? value[valueKey] : value
 		let index = 0
 		if (isKv) {
 			this.list.forEach((v, i) => {
@@ -185,7 +186,7 @@ export default class PickerView extends Component {
 							<Otherwise>
 								<For each="item" of={this.list} index="index">
 									<div className="mona-picker-view-item"
-										key={index}
+										key={`item${index}`}
 										style={{
 											height: `${cellHeight}px`,
 											lineHeight: `${cellHeight}px`

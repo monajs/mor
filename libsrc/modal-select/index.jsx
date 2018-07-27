@@ -35,6 +35,9 @@ export default class ModalSelect extends Component {
 	}
 	
 	componentWillReceiveProps (nextProps) {
+		if (nextProps.visible === this.visible) {
+			return
+		}
 		if (nextProps.visible === true) {
 			this.show()
 		} else if (nextProps.visible === false) {
