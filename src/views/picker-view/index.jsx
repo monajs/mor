@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { PickerView } from 'mona'
 
 export default class Test extends Component {
+	// 测试
 	year = '2018年'
 	
 	getValue (val) {
