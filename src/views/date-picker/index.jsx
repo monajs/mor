@@ -12,8 +12,8 @@ export default class Test extends Component {
 			onConfirm: (data) => {
 				this.value = Util.moment(data).format('YYYY-MM-DD HH:mm:ss')
 			},
-			onCancel: () => {
-				console.log('cancel')
+			onCancel: type => {
+				console.log(type)
 			}
 		})
 	}

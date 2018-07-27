@@ -72,12 +72,9 @@ export default class DatePicker extends Component {
 			if (days.length === this.days.length) {
 				return
 			}
-			this.refs.day.setData(days)
+			this.days = days
+			this.refs.day.setData(this.days)
 		}
-	}
-	
-	select (data) {
-		this.mainData = data
 	}
 	
 	show () {
