@@ -8,6 +8,7 @@ import Popup from 'views/popup'
 import Layout from 'views/layout'
 import ModalSelect from 'views/modal-select'
 import PickerSelect from 'views/picker-select'
+import DatePicker from 'views/date-picker'
 
 export default {
 	index: 'index',
@@ -22,6 +23,6 @@ export default {
 		'popup': Popup,
 		'layout': Layout,
 		'modal-select': ModalSelect,
-		'picker-select': PickerSelect
+		'date-picker': DatePicker
 	}
 }

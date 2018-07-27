@@ -10,7 +10,7 @@ import Tool from '../tool'
 export default class PickerView extends Component {
 	static defaultProps = {
 		isKv: true,	// 数据结构类型
-		nameKey: 'name',	//  目前没用
+		nameKey: 'name',
 		valueKey: 'value',
 		source: [],
 		cellHeight: 34	// 单元格高度
@@ -45,6 +45,7 @@ export default class PickerView extends Component {
 	setData (data) {
 		const { cellHeight } = this.props
 		this.list = data
+		this.setState({})
 		this.setIndex(this.selectIndex)
 		this.move(-this.selectIndex * cellHeight)
 	}
@@ -164,6 +165,7 @@ export default class PickerView extends Component {
 			className,
 			isKv,
 			valueKey,
+			nameKey,
 			cellHeight
 		} = this.props
 		return (
@@ -179,7 +181,7 @@ export default class PickerView extends Component {
 											height: `${cellHeight}px`,
 											lineHeight: `${cellHeight}px`
 										}}>
-										{item[valueKey]}
+										{item[nameKey]}
 									</div>
 								</For>
 							</When>
