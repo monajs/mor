@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import classNames from 'classnames'
 import Hammer from '../hammer'
 import Tool from '../tool'
 
@@ -22,15 +23,11 @@ export default class ListView extends Component {
 		}
 	}
 	
-	componentWillReceiveProps (nextProps) {
-		if (nextProps.isEnd !== this.props.isEnd) {
-			this.setState({})
-		}
-	}
-	
 	componentDidMount () {
 		this.container = this.refs.container.refs.hammer
 		this.wrap = this.refs.wrap
+		this.refreshIcon = this.refs.refreshIcon
+		console.log(this.refreshIcon)
 	}
 	
 	startY = 0 // 起点的位置
@@ -43,6 +40,7 @@ export default class ListView extends Component {
 		if (this.container.scrollTop > 0) {
 			return
 		}
+		Tool.removeClass(this.wrap, 'mona-list-view-transition')
 		this.startY = e.targetTouches[0].pageY
 		this.touching = true
 	}
@@ -73,6 +71,7 @@ export default class ListView extends Component {
 		if (!enableRefresh || !this.touching) {
 			return
 		}
+		Tool.addClass(this.wrap, 'mona-list-view-transition')
 		this.touching = false
 		
 		if (this.status === 2) {
@@ -95,6 +94,7 @@ export default class ListView extends Component {
 	
 	refresh () {
 		const { onRefresh } = this.props
+		Tool.addClass(this.refreshIcon, 'animate')
 		onRefresh && onRefresh(this.refreshDone.bind(this))
 	}
 	
@@ -102,6 +102,7 @@ export default class ListView extends Component {
 	refreshDone () {
 		this.status = 0
 		this.top = 0
+		Tool.removeClass(this.refreshIcon, 'animate')
 		this.setHeaderPosition()
 	}
 	
@@ -148,7 +149,7 @@ export default class ListView extends Component {
 	setHeaderPosition () {
 		Tool.css(this.wrap, {
 			'will-change': 'transform',
-			transform: this.top ? `translateY(${this.top}px)` : 'none'
+			transform: `translateY(${this.top || 0}px)`
 		})
 	}
 	
@@ -178,11 +179,15 @@ export default class ListView extends Component {
 				ref="container">
 				<section className="mona-list-view-section pos-a w-full" style={sectionSty} ref="wrap">
 					<If condition={enableRefresh}>
-						<header className="list-view-refresh" style={headerSty}>refresh...</header>
+						<header className="list-view-refresh flex-center" style={headerSty}>
+							<div ref="refreshIcon" className="list-view-refresh-icon"></div>
+						</header>
 					</If>
 					{children}
 					<If condition={enableInfinite && !isEnd}>
-						<footer className="list-view-infinite">loading...</footer>
+						<footer className="list-view-infinite">
+							<div className="list-view-infinite-icon block-center"></div>
+						</footer>
 					</If>
 				</section>
 			</Hammer>
