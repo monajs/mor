@@ -6,6 +6,7 @@ export default class ListView extends Component {
 	static defaultProps = {
 		offset: 50,
 		bottomEmit: 100,
+		infiniteTimer: 200, // 上拉加载更多检测频率
 		enableInfinite: true,
 		enableRefresh: true,
 		isEnd: false
@@ -18,6 +19,12 @@ export default class ListView extends Component {
 		}
 		if (enableInfinite && !onInfinite) {
 			throw new Error('允许加载更多的情况下（enableInfinite: true），onInfinite 回调函数不允许为空')
+		}
+	}
+	
+	componentWillReceiveProps (nextProps) {
+		if (nextProps.isEnd !== this.props.isEnd) {
+			this.setState({})
 		}
 	}
 	
@@ -47,9 +54,6 @@ export default class ListView extends Component {
 		}
 		
 		const diff = e.targetTouches[0].pageY - this.startY
-		// if (diff > 0) {
-		// 	e.preventDefault();
-		// }
 		this.top = Math.pow(diff, 0.8) // 弹性阻尼
 		this.setHeaderPosition()
 		
@@ -102,7 +106,42 @@ export default class ListView extends Component {
 	}
 	
 	scroll (e) {
-		const { enableInfinite } = this.props
+		const { enableRefresh, offset, enableInfinite, infiniteTimer, isEnd, bottomEmit } = this.props
+		if (!enableInfinite || this.infiniting) {
+			return
+		}
+		if (isEnd) {
+			return
+		}
+		if (this.isTiming) {
+			return
+		}
+		this.isTiming = true
+		
+		clearTimeout(this.timer)
+		this.timer = setTimeout(() => {
+			this.containerHeight = this.containerHeight || this.container.clientHeight
+			this.sectionHeight = this.sectionHeight || this.wrap.clientHeight
+			const scrollTop = this.container.scrollTop
+			this.headerHeight = this.headerHeight || (enableRefresh ? offset : 0)
+			this.footerHeight = this.footerHeight || this.wrap.querySelector('.list-view-infinite').clientHeight
+			
+			const bottom = this.sectionHeight - this.containerHeight - scrollTop - this.headerHeight
+			if (bottom < (this.sectionHeight + bottomEmit)) {
+				this.infinite()
+			}
+			this.isTiming = false
+		}, infiniteTimer)
+	}
+	
+	infinite () {
+		const { onInfinite } = this.props
+		this.infiniting = true
+		onInfinite && onInfinite(this.infiniteDone.bind(this))
+	}
+	
+	infiniteDone () {
+		this.infiniting = false
 	}
 	
 	// 头部下拉刷新区块位移
@@ -116,6 +155,7 @@ export default class ListView extends Component {
 	render () {
 		const {
 			offset,
+			enableRefresh,
 			enableInfinite,
 			isEnd,
 			children,
@@ -137,7 +177,9 @@ export default class ListView extends Component {
 				style={style}
 				ref="container">
 				<section className="mona-list-view-section pos-a w-full" style={sectionSty} ref="wrap">
-					<header className="list-view-refresh" style={headerSty}>refresh...</header>
+					<If condition={enableRefresh}>
+						<header className="list-view-refresh" style={headerSty}>refresh...</header>
+					</If>
 					{children}
 					<If condition={enableInfinite && !isEnd}>
 						<footer className="list-view-infinite">loading...</footer>
