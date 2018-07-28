@@ -6,6 +6,7 @@ export default class Hammer extends Component {
 		this.refs.hammer.addEventListener('touchmove', this.touchMove.bind(this), false)
 		this.refs.hammer.addEventListener('touchend', this.touchEnd.bind(this), false)
 		this.refs.hammer.addEventListener('touchcancel', this.touchCancel.bind(this), false)
+		this.refs.hammer.addEventListener('scroll', this.scroll.bind(this), false)
 	}
 	
 	getInfo (prev, next) {
@@ -144,6 +145,12 @@ export default class Hammer extends Component {
 		}
 	}
 	
+	scroll (e) {
+		if (this.props.scroll) {
+			this.props.scroll(e)
+		}
+	}
+	
 	tap (e) {
 		if (this.props.tap) {
 			this.props.tap(e)
@@ -160,6 +167,7 @@ export default class Hammer extends Component {
 		const {
 			style,
 			pan,
+			scroll,
 			touchstart,
 			panstart,
 			panmove,
