@@ -32,7 +32,7 @@ export default class Test extends Component {
 	
 	render () {
 		return (
-			<div className="full">
+			<div className="full o-H">
 				<ListView onRefresh={this.onRefresh.bind(this)} onInfinite={this.onInfinite.bind(this)} isEnd={this.isEnd}>
 					<div className="list-view-group">
 						<For of={this.list} each="item" index="index">

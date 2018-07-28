@@ -39,7 +39,9 @@ export default class ListView extends Component {
 		if (this.container.scrollTop > 0) {
 			return
 		}
-		if (!this.optionAngle(e)) {
+		this.preventDefault(e)
+		const angleAbs = Math.abs(e.angle)
+		if (angleAbs < 50 || angleAbs > 130) {
 			return
 		}
 		Tool.removeClass(this.wrap, 'mona-list-view-transition')
@@ -52,9 +54,7 @@ export default class ListView extends Component {
 		if (!enableRefresh || !this.touching) {
 			return
 		}
-		if (!this.optionAngle(e)) {
-			return
-		}
+		this.preventDefault(e)
 		const diff = e.targetTouches[0].pageY - this.startY
 		this.top = Math.pow(diff, 0.8) // 弹性阻尼
 		this.setHeaderPosition()
@@ -75,9 +75,7 @@ export default class ListView extends Component {
 		if (!enableRefresh || !this.touching) {
 			return
 		}
-		if (!this.optionAngle(e)) {
-			return
-		}
+		this.preventDefault(e)
 		Tool.addClass(this.wrap, 'mona-list-view-transition')
 		this.touching = false
 		
@@ -99,16 +97,11 @@ export default class ListView extends Component {
 		this.setHeaderPosition()
 	}
 	
-	// 处理手势角度问题
-	optionAngle (e) {
-		let angleAbs = Math.abs(e.angle)
+	preventDefault (e) {
+		const angleAbs = Math.abs(e.angle)
 		if (angleAbs >= 50 && angleAbs <= 130) {
 			e.preventDefault()
 		}
-		if (angleAbs < 50 || angleAbs > 130) {
-			return false
-		}
-		return true
 	}
 	
 	refresh () {
