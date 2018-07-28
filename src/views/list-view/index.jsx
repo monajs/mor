@@ -32,14 +32,19 @@ export default class Test extends Component {
 	
 	render () {
 		return (
-			<div style={{ height: 400 }}>
+			<div className="full">
 				<ListView onRefresh={this.onRefresh.bind(this)} onInfinite={this.onInfinite.bind(this)} isEnd={this.isEnd}>
-					<For of={this.list} each="item" index="index">
-						<div style={{ height: 60 }} key={index}>{item}</div>
-					</For>
-					<If condition={this.isEnd}>
-						<div className="flex-center">没有更多了哟～</div>
-					</If>
+					<div className="list-view-group">
+						<For of={this.list} each="item" index="index">
+							<div className="list-view-item flex-center-y" key={index}>
+								<div className="avatar r-circle"></div>
+								<div className="info flex-1">杨玺</div>
+							</div>
+						</For>
+						<If condition={this.isEnd}>
+							<div className="flex-center" style={{ height: 80 }}>没有更多了哟～</div>
+						</If>
+					</div>
 				</ListView>
 			</div>
 		)
