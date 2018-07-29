@@ -26,43 +26,45 @@ export default class ListView extends Component {
 		this.container = this.refs.container.refs.hammer
 		this.wrap = this.refs.wrap
 		this.refreshIcon = this.refs.refreshIcon
-		console.log(this.refreshIcon)
 	}
 	
 	startY = 0 // 起点的位置
+	startScrollTop = 0 // 开始touch事件时的scrollTop值
 	status = 0	// 0-下降状态以及初始状态、1-上升状态、2-停止状态，正在刷新
 	top = 0
 	touching = false
 	infiniting = false // 加载更多区块处理状态中
 	
 	panstart (e) {
-		if (this.container.scrollTop > 0) {
-			return
-		}
-		this.preventDefault(e)
 		const angleAbs = Math.abs(e.angle)
-		if (angleAbs < 50 || angleAbs > 130) {
-			return
+		this.startScrollTop = this.container.scrollTop || 0
+		if (e.velocityY > 0 && this.startScrollTop <= 0) {
+			e.preventDefault()
 		}
-		Tool.removeClass(this.wrap, 'mona-list-view-transition')
-		this.startY = e.targetTouches[0].pageY
-		this.touching = true
+		if (angleAbs > 45 && angleAbs < 135) {
+			Tool.removeClass(this.wrap, 'mona-list-view-transition')
+			this.startY = e.targetTouches[0].pageY
+			this.touching = true
+		}
 	}
 	
 	panmove (e) {
+		const diff = e.targetTouches[0].pageY - this.startY - this.startScrollTop
+		if (diff > 0) {
+			e.preventDefault()
+		}
+		
 		const { enableRefresh, offset } = this.props
-		if (!enableRefresh || !this.touching) {
+		if (!enableRefresh || this.container.scrollTop > 0 || !this.touching) {
 			return
 		}
-		this.preventDefault(e)
-		const diff = e.targetTouches[0].pageY - this.startY
-		this.top = Math.pow(diff, 0.8) // 弹性阻尼
+		
+		this.top = Math.pow(diff, 0.8) + (this.status === 2 ? offset : 0) // 弹性阻尼
 		this.setHeaderPosition()
 		
 		if (this.status === 2) {
 			return
 		}
-		
 		if (this.top >= offset) {
 			this.status = 1	// 位移过程中，超过header高度
 		} else {
@@ -75,7 +77,6 @@ export default class ListView extends Component {
 		if (!enableRefresh || !this.touching) {
 			return
 		}
-		this.preventDefault(e)
 		Tool.addClass(this.wrap, 'mona-list-view-transition')
 		this.touching = false
 		
@@ -95,13 +96,6 @@ export default class ListView extends Component {
 			this.top = 0
 		}
 		this.setHeaderPosition()
-	}
-	
-	preventDefault (e) {
-		const angleAbs = Math.abs(e.angle)
-		if (angleAbs >= 50 && angleAbs <= 130) {
-			e.preventDefault()
-		}
 	}
 	
 	refresh () {

@@ -24,7 +24,7 @@ export default class Test extends Component {
 	onInfinite (done) {
 		setTimeout(() => {
 			this.list = this.list.concat([11, 12, 13, 14, 15, 16, 17, 18])
-			this.isEnd = this.list.length > 20
+			this.isEnd = this.list.length > 40
 			this.setState({})
 			done()
 		}, 1500)
@@ -32,7 +32,7 @@ export default class Test extends Component {
 	
 	render () {
 		return (
-			<div className="full o-H">
+			<div className="full pos-r">
 				<ListView onRefresh={this.onRefresh.bind(this)} onInfinite={this.onInfinite.bind(this)} isEnd={this.isEnd}>
 					<div className="list-view-group">
 						<For of={this.list} each="item" index="index">
