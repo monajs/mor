@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { findDOMNode } from 'react-dom'
 import Hammer from '../hammer'
 import Tool from '../tool'
 
@@ -23,7 +24,7 @@ export default class ListView extends Component {
 	}
 	
 	componentDidMount () {
-		this.container = this.refs.container.refs.hammer
+		this.container = findDOMNode(this.refs.container)
 		this.wrap = this.refs.wrap
 		this.refreshIcon = this.refs.refreshIcon
 	}

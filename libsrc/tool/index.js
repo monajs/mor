@@ -53,7 +53,7 @@ class Tool {
 			if (this.prefixList().indexOf(v) >= 0) {
 				_data['-webkit-' + v] = _data[v]
 			}
-			if (typeof(_data[v]) == 'number' && cssNumber.indexOf(v) < 0) {
+			if (typeof(_data[v]) === 'number' && cssNumber.indexOf(v) < 0) {
 				_data[v] = _data[v] + 'px'
 			}
 		})

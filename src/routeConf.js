@@ -11,6 +11,7 @@ import PickerSelect from 'views/picker-select'
 import DatePicker from 'views/date-picker'
 import DatePickerRange from 'views/date-picker-range'
 import ListView from 'views/list-view'
+import Carousel from 'views/carousel'
 
 export default {
 	index: 'index',
@@ -29,5 +30,6 @@ export default {
 		'date-picker-range': DatePickerRange,
 		'picker-select': PickerSelect,
 		'list-view': ListView,
+		'carousel': Carousel,
 	}
 }
