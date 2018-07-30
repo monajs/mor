@@ -9,6 +9,7 @@ import Layout from 'views/layout'
 import ModalSelect from 'views/modal-select'
 import PickerSelect from 'views/picker-select'
 import DatePicker from 'views/date-picker'
+import DatePickerRange from 'views/date-picker-range'
 import ListView from 'views/list-view'
 
 export default {
@@ -25,6 +26,7 @@ export default {
 		'layout': Layout,
 		'modal-select': ModalSelect,
 		'date-picker': DatePicker,
+		'date-picker-range': DatePickerRange,
 		'picker-select': PickerSelect,
 		'list-view': ListView,
 	}
