@@ -38,6 +38,7 @@ export default class ListView extends Component {
 	panstart (e) {
 		const angleAbs = Math.abs(e.angle)
 		this.startScrollTop = this.container.scrollTop || 0
+		console.log(e.velocityY)
 		if (e.velocityY > 0 && this.startScrollTop <= 0) {
 			e.preventDefault()
 		}
@@ -155,7 +156,7 @@ export default class ListView extends Component {
 	setHeaderPosition () {
 		Tool.css(this.wrap, {
 			'will-change': 'transform',
-			transform: `translateY(${this.top || 0}px)`
+			transform: this.top ? `translateY(${this.top}px)` : 'none'
 		})
 	}
 	
