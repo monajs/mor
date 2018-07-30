@@ -6,11 +6,21 @@ const CarouselItem = Carousel.item
 export default class Test extends Component {
 	render () {
 		return (
-			<Carousel>
-				<CarouselItem>1</CarouselItem>
-				<CarouselItem>2</CarouselItem>
-				<CarouselItem>3</CarouselItem>
-			</Carousel>
+			<div>
+				<div className="carousel-pannel w-full">
+					<Carousel>
+						<CarouselItem>
+							<img className="full" src="https://s10.mogucdn.com/mlcdn/c45406/170804_1j6a0f30hcc36k464ikhakj0cbaeg_1350x578.jpg" />
+						</CarouselItem>
+						<CarouselItem>
+							<img className="full" src="https://s10.mogucdn.com/mlcdn/c45406/170804_41l88h92fl116bk0kdl4lklk6d0ia_1350x578.jpg" />
+						</CarouselItem>
+						<CarouselItem>
+							<img className="full" src="https://s10.mogucdn.com/mlcdn/c45406/170804_46glh9ch5l7afde25485e5a8k76jf_1350x578.jpg" />
+						</CarouselItem>
+					</Carousel>
+				</div>
+			</div>
 		)
 	}
 }

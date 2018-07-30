@@ -24,6 +24,18 @@ export default class Carousel extends Component {
 	
 	componentDidMount () {
 		this.wrap = findDOMNode(this.refs.wrap)
+		this.group = this.refs.group
+		this.initNode()
+	}
+	
+	itemWidth = 0
+	children = []
+	
+	initNode () {
+		const { childWidth, children } = this.props
+		this.itemWidth = childWidth || this.wrap.offsetWidth
+		this.children = React.Children.toArray(children)
+		this.setState({})
 	}
 	
 	panmove (e) {
@@ -41,9 +53,23 @@ export default class Carousel extends Component {
 	render () {
 		const {
 			children,
+			loop,
 			className,
 			...props
 		} = this.props
+		
+		let child = React.Children.map(children, (v) => {
+			if (!v) {
+				return
+			}
+			return React.cloneElement(v, {
+				itemWidth: this.itemWidth
+			})
+		})
+		
+		const groupSty = {
+			width: (this.children.length + (loop ? 2 : 0)) * this.itemWidth
+		}
 		return (
 			<Hammer
 				className={classNames('mona-carousel full pos-r o-h', className)}
@@ -51,7 +77,9 @@ export default class Carousel extends Component {
 				panstart={this.panstart.bind(this)}
 				panend={this.panend.bind(this)}
 				ref="wrap">
-				{children}
+				<div className="mona-carousel-group h-full o-h" ref="group" style={groupSty}>
+					{child}
+				</div>
 			</Hammer>
 		)
 	}
