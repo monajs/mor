@@ -6,7 +6,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import Popup from '../popup'
 import PickerView from '../picker-view'
-import Generate from './generate'
+import Generate from '../tool/generate'
 
 export default class DatePicker extends Component {
 	static config (options) {
@@ -42,6 +42,10 @@ export default class DatePicker extends Component {
 		} else if (nextProps.visible === false) {
 			this.hide()
 		}
+		if (nextProps.date !== this.options.date) {
+			this.options.date = nextProps.date
+			this.setDefault()
+		}
 	}
 	
 	setOptions () {
@@ -49,6 +53,16 @@ export default class DatePicker extends Component {
 		const ctrl = Generate.generateCtrl(format)
 		this.options = Object.assign({}, this.props, ctrl)
 		
+		this.years = this.options.years || Generate.years(15)
+		this.months = this.options.months || Generate.months()
+		this.hours = this.options.hours || Generate.hours()
+		this.minutes = this.options.minutes || Generate.minutes()
+		this.seconds = this.options.seconds || Generate.seconds()
+		
+		this.setDefault()
+	}
+	
+	setDefault () {
 		const date = this.options.date ? new Date(this.options.date) : new Date()
 		this.year = date.getFullYear() + ''
 		this.month = Generate.pad(date.getMonth() + 1, 2)
@@ -57,12 +71,7 @@ export default class DatePicker extends Component {
 		this.minute = Generate.pad(date.getMinutes(), 2)
 		this.second = Generate.pad(date.getSeconds(), 2)
 		
-		this.years = this.options.years ? this.options.years : Generate.years(15)
-		this.months = this.options.months ? this.options.months : Generate.months()
 		this.days = Generate.days(this.year, this.month)
-		this.hours = this.options.hours ? this.options.hours : Generate.hours()
-		this.minutes = this.options.minutes ? this.options.minutes : Generate.minutes()
-		this.seconds = this.options.seconds ? this.options.seconds : Generate.seconds()
 	}
 	
 	getValue (type, val) {

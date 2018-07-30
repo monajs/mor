@@ -38,7 +38,6 @@ export default class ListView extends Component {
 	panstart (e) {
 		const angleAbs = Math.abs(e.angle)
 		this.startScrollTop = this.container.scrollTop || 0
-		console.log(e.velocityY)
 		if (e.velocityY > 0 && this.startScrollTop <= 0) {
 			e.preventDefault()
 		}

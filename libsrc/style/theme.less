@@ -1,21 +1,23 @@
 @w:	750;
-@primary		: #ff5777;
-@color			: #333;	//字体颜色
-@border-color	: #ececec;
+@mona-primary		: #2196F3;
+@mona-color			: #333;	//字体颜色
+@mona-border-color	: #e4e4e4;
 
-@font-size-sm	: 12px;
-@font-size		: 14px;
-@font-size-lg	: 16px;
+@mona-font-size-sm	: 12px;
+@mona-font-size		: 14px;
+@mona-font-size-lg	: 16px;
 
-@border-radius	: 5px;
+@mona-border-radius	: 5px;
 
-@wrap-color		: #fff;
+@mona-wrap-color		: #fff;
+
+@mona-mask-bg		: rgba(0, 0, 0, .5);
 
 /*toast*/
 @toastZIndex						: 499;
-@toastBorderRadius					: @border-radius;
-@toastBgColor						: rgba(0, 0, 0, .7);
-@toastFontSize						: @font-size;
+@toastBorderRadius					: @mona-border-radius;
+@toastBgColor						: @mona-mask-bg;
+@toastFontSize						: @mona-font-size;
 @toastConZIndex						: 500;
 @toastColor							: #fff;
 @toastSuccessIcon					: 'https://s10.mogucdn.com/mlcdn/c45406/180205_89ff4d45g31c7a4cfk8j727b6adli_200x200.png_100x100.png';
@@ -25,11 +27,11 @@
 
 /*modal*/
 @modalZIndex						: 400;
-@modalMaskBg						: rgba(0, 0, 0, .7);
+@modalMaskBg						: @mona-mask-bg;
 @modalHeaderFontSizeSm				: 16px;
 @modalHeaderFontSize				: 18px;
-@modalHeaderColor					: @color;
-@modalWrapBorderRadius				: @border-radius;
+@modalHeaderColor					: @mona-color;
+@modalWrapBorderRadius				: @mona-border-radius;
 @modalWrapFontSizeSm				: 14px;
 @modalWrapFontSize					: 15px;
 @modalWrapFontSizeLg				: 16px;
@@ -39,7 +41,7 @@
 @modalWrapBgColor	       			: #fff;
 @modalWrapColor						: #888;
 @modalWrapNoTitle					: #666;
-@modalWrapBorderColor				: @border-color;
+@modalWrapBorderColor				: @mona-border-color;
 @modalFooterHeightSm				: 40px;
 @modalFooterHeight					: 45px;
 @modalFooterHeightLg				: 50px;
@@ -50,35 +52,36 @@
 /*popup*/
 @popupZIndex						: 300;
 @popupAnimDuration					: 350ms;
+@popupMaskBg						: @mona-mask-bg;
 
 /*modal-select*/
-@modalSelectWrapBgColor				: @wrap-color;
+@modalSelectWrapBgColor				: @mona-wrap-color;
 @modalSelectHeaderHeight			: 45px;
 @modalSelectHeaderFontSize			: 16px;
-@modalSelectHeaderColor				: @primary;
-@modalSelectHeaderBorderColor		: @border-color;
+@modalSelectHeaderColor				: @mona-primary;
+@modalSelectHeaderBorderColor		: @mona-border-color;
 @modalSelectItemHeight				: 48px;
 @modalSelectItemFontSize			: 15px;
-@modalSelectItemColor				: @color;
+@modalSelectItemColor				: @mona-color;
 @modalSelectItemSelectedBg			: #ffeeed;
 @modalSelectItemSelectedIcon		: 'https://s10.mogucdn.com/mlcdn/c45406/180531_1446j5l280i4cl48h6abh954e6g9l_31x23.png';
 
 /*picker-select*/
-@pickerSelectWrapBgColor			: @wrap-color;
-@pickerSelectHeaderFontSize			: @font-size-lg;
+@pickerSelectWrapBgColor			: @mona-wrap-color;
+@pickerSelectHeaderFontSize			: @mona-font-size-lg;
 @pickerSelectHeaderHeight			: 45px;
-@pickerSelectHeaderColor			: @primary;
-@pickerSelectHeaderBorderColor		: @border-color;;
+@pickerSelectHeaderColor			: @mona-primary;
+@pickerSelectHeaderBorderColor		: @mona-border-color;;
 @pickerSelectWrapHeight				: 280px;
 
 /*date-picker*/
-@datePickerWrapBgColor				: @wrap-color;
-@datePickerHeaderFontSize			: @font-size-lg;
-@datePickerHeaderColor				: @primary;
+@datePickerWrapBgColor				: @mona-wrap-color;
+@datePickerHeaderFontSize			: @mona-font-size-lg;
+@datePickerHeaderColor				: @mona-primary;
 @datePickerHeaderHeight				: 45px;
-@datePickerHeaderborderColor		: @border-color;
+@datePickerHeaderborderColor		: @mona-border-color;
 @datePickerWrapHeight				: 280px;
-@datePickerWrapFontSize				: @font-size;
+@datePickerWrapFontSize				: @mona-font-size;
 
 /*list-view*/
 @listViewRefreshFontSize			: 13px;
