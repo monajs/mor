@@ -8,7 +8,7 @@ export default class Test extends Component {
 		return (
 			<div>
 				<div className="carousel-pannel w-full">
-					<Carousel>
+					<Carousel loop={true}>
 						<CarouselItem>
 							<img className="full" src="https://s10.mogucdn.com/mlcdn/c45406/170804_1j6a0f30hcc36k464ikhakj0cbaeg_1350x578.jpg" />
 						</CarouselItem>
