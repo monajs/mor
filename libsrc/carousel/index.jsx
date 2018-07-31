@@ -301,26 +301,37 @@ export default class Carousel extends Component {
 			let first1, first2, last1, last2
 			if (childLen === 2) {
 				first1 = React.cloneElement(child[0], {
-					key: `mona_clone_${child[0].key}`
+					key: `clone_first1_${child[0].key}`
 				})
-				first1 = last1 = child[0]
-				first2 = last2 = child[2]
+				last1 = React.cloneElement(child[0], {
+					key: `clone_last1_${child[0].key}`
+				})
+				first2 = React.cloneElement(child[2], {
+					key: `clone_first2_${child[2].key}`
+				})
+				last2 = React.cloneElement(child[2], {
+					key: `clone_last2_${child[2].key}`
+				})
 			} else {
-				first1 = child[childLen - 3]
-				first2 = child[childLen - 1]
-				last1 = child[0]
-				last2 = child[2]
+				first1 = React.cloneElement(child[childLen - 3], {
+					key: `clone_first1_${child[childLen - 3].key}`
+				})
+				first2 = React.cloneElement(child[childLen - 1], {
+					key: `clone_first2_${child[childLen - 1].key}`
+				})
+				last1 = React.cloneElement(child[0], {
+					key: `clone_last1_${child[0].key}`
+				})
+				last2 = React.cloneElement(child[2], {
+					key: `clone_last2_${child[2].key}`
+				})
 			}
-			console.log(child)
-			first1.key = `mona_clone_${first1.key}`
-			first2.key = `mona_clone_${first2.key}`
-			last1.key = `mona_clone_${last1.key}`
-			last2.key = `mona_clone_${last2.key}`
 			
 			child.unshift(first2)
 			child.unshift(first1)
 			child.push(last1)
 			child.push(last2)
+			console.log(child)
 		}
 		
 		const groupSty = {
