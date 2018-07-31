@@ -67,39 +67,9 @@ export default class Carousel extends Component {
 		}
 		
 		if (loop && this.originChildren.length > 1) {
-			// this.addChildNode() // 添加用作循环的节点
 			this.children.length += 4
 		}
 		this.setState({})
-	}
-	
-	addChildNode () {
-		const { children } = this.props
-		let childList = React.Children.toArray(children),
-			listLen = childList.length,
-			first1, first2, last1, last2
-		if (listLen === 2) {
-			first1 = last1 = findDOMNode(childList[0])
-			first2 = last2 = findDOMNode(childList[2])
-		} else {
-			first1 = findDOMNode(childList[listLen - 3])
-			first2 = findDOMNode(childList[listLen - 1])
-			last1 = findDOMNode(childList[0])
-			last2 = findDOMNode(childList[2])
-		}
-		first1.style.width = first2.style.width =
-			last1.style.width = last2.style.width = `${this.itemWidth}px`
-		
-		let fragmentFirst = document.createDocumentFragment() // 虚拟节点操作不会消耗UI线程
-		let fragmentLast = document.createDocumentFragment()
-		
-		fragmentFirst.appendChild(first1)
-		fragmentFirst.appendChild(first2)
-		fragmentLast.appendChild(last1)
-		fragmentLast.appendChild(last2)
-		
-		this.group.insertBefore(fragmentFirst, childList[0])
-		this.group.appendChild(fragmentLast)
 	}
 	
 	autoplayAction () {
@@ -270,6 +240,7 @@ export default class Carousel extends Component {
 		!isFirst && afterChange && afterChange(this.trueIndex)
 	}
 	
+	// 最终操作
 	moveOption (fn) {
 		this.translateX = -1 * this.itemWidth * this.currentIndex + this.gapWidth // 偏移量
 		fn && fn()
@@ -331,7 +302,6 @@ export default class Carousel extends Component {
 			child.unshift(first1)
 			child.push(last1)
 			child.push(last2)
-			console.log(child)
 		}
 		
 		const groupSty = {
