@@ -258,44 +258,20 @@ export default class Carousel extends Component {
 			...props
 		} = this.props
 		
-		let child = React.Children.map(children, (v) => {
-			if (!v) {
-				return
-			}
-			return React.cloneElement(v, {
-				itemWidth: this.itemWidth
-			})
-		})
+		let child = React.Children.toArray(children)
+		
 		// 循环的场景改变children
 		if (loop) {
 			const childLen = React.Children.toArray(child).length
 			let first1, first2, last1, last2
 			if (childLen === 2) {
-				first1 = React.cloneElement(child[0], {
-					key: `clone_first1_${child[0].key}`
-				})
-				last1 = React.cloneElement(child[0], {
-					key: `clone_last1_${child[0].key}`
-				})
-				first2 = React.cloneElement(child[2], {
-					key: `clone_first2_${child[2].key}`
-				})
-				last2 = React.cloneElement(child[2], {
-					key: `clone_last2_${child[2].key}`
-				})
+				first1 = last1 = child[0]
+				first2 = last2 = child[2]
 			} else {
-				first1 = React.cloneElement(child[childLen - 3], {
-					key: `clone_first1_${child[childLen - 3].key}`
-				})
-				first2 = React.cloneElement(child[childLen - 1], {
-					key: `clone_first2_${child[childLen - 1].key}`
-				})
-				last1 = React.cloneElement(child[0], {
-					key: `clone_last1_${child[0].key}`
-				})
-				last2 = React.cloneElement(child[2], {
-					key: `clone_last2_${child[2].key}`
-				})
+				first1 = child[childLen - 3]
+				first2 = child[childLen - 1]
+				last1 = child[0]
+				last2 = child[2]
 			}
 			
 			child.unshift(first2)
@@ -303,6 +279,16 @@ export default class Carousel extends Component {
 			child.push(last1)
 			child.push(last2)
 		}
+		
+		child = child.map((v, i) => {
+			if (!v) {
+				return
+			}
+			return React.cloneElement(v, {
+				itemWidth: this.itemWidth,
+				key: `mona_${i}`
+			})
+		})
 		
 		const groupSty = {
 			width: (this.children.length + (loop ? 4 : 0)) * this.itemWidth
