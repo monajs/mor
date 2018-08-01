@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
 
-export default class CarouselItem extends Component {
+export default class SwiperItem extends Component {
 	render () {
 		const {
 			children,
@@ -14,7 +14,7 @@ export default class CarouselItem extends Component {
 			width: itemWidth
 		})
 		return (
-			<div style={sty} className={classNames('mona-carousel-item pull-left h-full', className)} {...props}>
+			<div style={sty} className={classNames('mona-swiper-item pull-left h-full', className)} {...props}>
 				{children}
 			</div>
 		)

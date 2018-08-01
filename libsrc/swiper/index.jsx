@@ -5,7 +5,7 @@ import Hammer from '../hammer'
 import Tool from '../tool'
 import CarouselItem from './item'
 
-export default class Carousel extends Component {
+export default class Swiper extends Component {
 	static item = CarouselItem
 	
 	static defaultProps = {
@@ -37,7 +37,7 @@ export default class Carousel extends Component {
 	}
 	
 	componentWillUnmount () {
-		clearInterval(this.carouselTimer)
+		clearInterval(this.swiperTimer)
 	}
 	
 	itemWidth = 0
@@ -67,7 +67,7 @@ export default class Carousel extends Component {
 			throw new Error('默认下标超过长度，请检查')
 		}
 		if ((loop || autoplay) && this.originChildren.length === 1) {
-			throw new Error('carousel-item长度为1时不允许循环播放或者自动播放，请设置loop属性和autoplay属性为false')
+			throw new Error('swiper-item长度为1时不允许循环播放或者自动播放，请设置loop属性和autoplay属性为false')
 		}
 		
 		if (loop && this.originChildren.length > 1) {
@@ -78,8 +78,8 @@ export default class Carousel extends Component {
 	
 	autoplayAction () {
 		const { autoplayInterval } = this.props
-		clearInterval(this.carouselTimer)
-		this.carouselTimer = setInterval(() => {
+		clearInterval(this.swiperTimer)
+		this.swiperTimer = setInterval(() => {
 			const index = this.currentIndex + 1
 			this.setIndex(index)
 			this.move()
@@ -110,10 +110,10 @@ export default class Carousel extends Component {
 			return
 		}
 		this.isTouching = true
-		Tool.removeClass(this.group, 'mona-carousel-transition')
+		Tool.removeClass(this.group, 'mona-swiper-transition')
 		
 		this.currentTranslateX = this.translateX // 记录手势开始前的偏移量
-		clearInterval(this.carouselTimer)
+		clearInterval(this.swiperTimer)
 	}
 	
 	panmove (e) {
@@ -149,7 +149,7 @@ export default class Carousel extends Component {
 			e.preventDefault()
 		}
 		this.isTouching = false
-		Tool.addClass(this.group, 'mona-carousel-transition')
+		Tool.addClass(this.group, 'mona-swiper-transition')
 		this.calcEndIndex(e)
 		this.move()
 		
@@ -215,7 +215,7 @@ export default class Carousel extends Component {
 		}
 		const { beforeChange, loop, afterChange } = this.props
 		this.isTranslating = true
-		!isFirst && Tool.addClass(this.group, 'mona-carousel-transition') // 避免首次加载定位的时候有动画
+		!isFirst && Tool.addClass(this.group, 'mona-swiper-transition') // 避免首次加载定位的时候有动画
 		this.moveOption(() => {
 			beforeChange && beforeChange(this.trueIndex)
 		})
@@ -228,12 +228,12 @@ export default class Carousel extends Component {
 			}
 			clearTimeout(this.translateTimer)
 			this.translateTimer = setTimeout(() => {
-				Tool.removeClass(this.group, 'mona-carousel-transition')
+				Tool.removeClass(this.group, 'mona-swiper-transition')
 				this.moveOption()
 				
 				clearTimeout(this.classTimer)
 				this.classTimer = setTimeout(() => {
-					Tool.addClass(this.group, 'mov-carousel-transition')
+					Tool.addClass(this.group, 'mov-swiper-transition')
 					this.isTranslating = false
 				}, 50)
 			}, 300)
@@ -300,12 +300,12 @@ export default class Carousel extends Component {
 		}
 		return (
 			<Hammer
-				className={classNames('mona-carousel full pos-r o-h', className)}
+				className={classNames('mona-swiper full pos-r o-h', className)}
 				panmove={this.panmove.bind(this)}
 				panstart={this.panstart.bind(this)}
 				panend={this.panend.bind(this)}
 				ref="wrap">
-				<div className="mona-carousel-group h-full o-h" ref="group" style={groupSty}>
+				<div className="mona-swiper-group h-full o-h" ref="group" style={groupSty}>
 					{child}
 				</div>
 			</Hammer>
