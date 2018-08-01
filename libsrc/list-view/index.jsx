@@ -13,6 +13,11 @@ export default class ListView extends Component {
 		isEnd: false
 	}
 	
+	// 返回顶部
+	static toTop () {
+		ListView.instance.container.scrollTop = 0
+	}
+	
 	componentWillMount () {
 		const { enableInfinite, enableRefresh, onRefresh, onInfinite } = this.props
 		if (enableRefresh && !onRefresh) {
@@ -24,6 +29,7 @@ export default class ListView extends Component {
 	}
 	
 	componentDidMount () {
+		ListView.instance = this
 		this.container = findDOMNode(this.refs.container)
 		this.wrap = this.refs.wrap
 		this.refreshIcon = this.refs.refreshIcon

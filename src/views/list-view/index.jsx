@@ -30,13 +30,17 @@ export default class Test extends Component {
 		}, 1500)
 	}
 	
+	toTop () {
+		ListView.toTop()
+	}
+	
 	render () {
 		return (
 			<div className="full pos-r">
 				<ListView onRefresh={this.onRefresh.bind(this)} onInfinite={this.onInfinite.bind(this)} isEnd={this.isEnd}>
 					<div className="list-view-group">
 						<For of={this.list} each="item" index="index">
-							<div className="list-view-item flex-center-y" key={index}>
+							<div className="list-view-item flex-center-y" onClick={this.toTop.bind(this)} key={index}>
 								<div className="avatar r-circle"></div>
 								<div className="info flex-1">杨玺</div>
 							</div>
