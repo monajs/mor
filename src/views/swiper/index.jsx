@@ -5,18 +5,18 @@ const SwiperItem = Swiper.item
 
 export default class Test extends Component {
 	afterChange (index) {
-		console.log(index)
+		// console.log(index)
 	}
 	
 	test () {
-		console.log(123)
+		// console.log(123)
 	}
 	
 	render () {
 		return (
 			<div>
 				<div className="swiper-pannel w-full">
-					<Swiper afterChange={this.afterChange.bind(this)} childWidth={300} loop={true}>
+					<Swiper afterChange={this.afterChange.bind(this)} loop={true} defaultIndex={1}>
 						<SwiperItem>
 							<img onClick={this.test.bind(this)} className="full" src="https://s10.mogucdn.com/mlcdn/c45406/170804_1j6a0f30hcc36k464ikhakj0cbaeg_1350x578.jpg" />
 						</SwiperItem>

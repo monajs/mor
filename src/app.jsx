@@ -13,5 +13,5 @@ FastClick.attach(document.body)
 
 render(<Router />, document.getElementById('appWrapper'))
 
-import panel from 'eruda';
-panel.init();
+// import panel from 'eruda';
+// panel.init();

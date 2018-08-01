@@ -97,6 +97,14 @@ class Tool {
 			newImages[i].src = arr[i]
 		}
 	}
+	
+	newArray (start, end) {
+		const result = []
+		for (let i = start; i < end; i++) {
+			result.push(i)
+		}
+		return result
+	}
 }
 
 export default new Tool

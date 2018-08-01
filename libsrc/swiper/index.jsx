@@ -16,7 +16,8 @@ export default class Swiper extends Component {
 		dots: true,
 		translateX: 0, // x轴偏移量
 		enableTouch: true, // 是否支持手势
-		loop: false // 是否循环轮播
+		loop: false, // 是否循环轮播,
+		dots: true
 	}
 	
 	componentWillMount () {
@@ -242,6 +243,7 @@ export default class Swiper extends Component {
 			this.isTranslating = false
 			this.trueIndex = this.currentIndex
 		}
+		this.setState({})
 		!isFirst && afterChange && afterChange(this.trueIndex)
 	}
 	
@@ -253,12 +255,14 @@ export default class Swiper extends Component {
 			'will-change': 'transform',
 			transform: `translateX(${this.translateX}px)`
 		})
+		
 	}
 	
 	render () {
 		const {
 			children,
 			loop,
+			dots,
 			className,
 			...props
 		} = this.props
@@ -308,6 +312,16 @@ export default class Swiper extends Component {
 				<div className="mona-swiper-group h-full o-h" ref="group" style={groupSty}>
 					{child}
 				</div>
+				<If condition={dots && this.originChildren.length > 1}>
+					<div className="mona-swiper-dots pos-a flex-center w-full">
+						<For each="item" of={Tool.newArray(0, this.originChildren.length)} index="index">
+							<div
+								key={index}
+								className={classNames('item', { 'active': this.trueIndex === index })}
+								onClick={this.changeIndex.bind(this, index)}></div>
+						</For>
+					</div>
+				</If>
 			</Hammer>
 		)
 	}
