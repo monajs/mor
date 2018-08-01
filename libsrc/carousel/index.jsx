@@ -41,8 +41,8 @@ export default class Carousel extends Component {
 	}
 	
 	itemWidth = 0
-	trueIndex = 0
-	currentIndex = 0
+	trueIndex = 0	// 返回的真实index
+	currentIndex = 0	// 逻辑控制展示的index
 	translateX = 0
 	gapWidth = 0 // childWidth和显示content的宽度差的一半
 	children = []
@@ -57,13 +57,11 @@ export default class Carousel extends Component {
 		this.originChildren.length = this.children.length = React.Children.count(children)
 		
 		if (this.defaultIndex > this.originChildren.length - 1) {
-			console.error('默认下标超过长度，请检查')
-			return
+			throw new Error('默认下标超过长度，请检查')
 		}
 		
 		if ((loop || autoplay) && this.originChildren.length === 1) {
-			console.error('carousel-item长度为1时不允许循环播放或者自动播放，请设置loop属性和autoplay属性为false')
-			return
+			throw new Error('carousel-item长度为1时不允许循环播放或者自动播放，请设置loop属性和autoplay属性为false')
 		}
 		
 		if (loop && this.originChildren.length > 1) {
@@ -153,6 +151,7 @@ export default class Carousel extends Component {
 	}
 	
 	// 计算手势结束时候的终点下标
+	// 计算this.currentIndex
 	calcEndIndex (e) {
 		const distance = ((this.translateX - this.currentTranslateX) / this.itemWidth).toFixed(1)
 		const distanceABS = Math.abs(distance)
@@ -208,17 +207,17 @@ export default class Carousel extends Component {
 		if (!this.group) {
 			return
 		}
-		
 		const { beforeChange, loop, afterChange } = this.props
 		this.isTranslating = true
-		!isFirst && Tool.addClass(this.group, 'mona-carousel-transition') // 防止首次加载定位的时候有动画
+		!isFirst && Tool.addClass(this.group, 'mona-carousel-transition') // 避免首次加载定位的时候有动画
 		this.moveOption(() => {
 			beforeChange && beforeChange(this.trueIndex)
 		})
+		
 		if (loop) {
 			if (this.currentIndex === 1) {
 				this.currentIndex += this.originChildren.length
-			} else if (this.currentIndex === this.originChildren.length - 2) {
+			} else if (this.currentIndex === this.children.length - 2) {
 				this.currentIndex = 2
 			}
 			clearTimeout(this.translateTimer)
@@ -291,7 +290,7 @@ export default class Carousel extends Component {
 		})
 		
 		const groupSty = {
-			width: (this.children.length + (loop ? 4 : 0)) * this.itemWidth
+			width: this.children.length * this.itemWidth
 		}
 		return (
 			<Hammer
