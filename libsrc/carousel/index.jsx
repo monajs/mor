@@ -51,15 +51,21 @@ export default class Carousel extends Component {
 	isTouching = false // 是否处于touch状态
 	
 	initNode () {
-		const { childWidth, children, autoplay, loop } = this.props
+		const { childWidth, children, loop, autoplay, defaultIndex } = this.props
+		if (typeof defaultIndex !== 'number') {
+			throw new Error('请检查defaultIndex的数据类型，仅支持Number类型')
+		}
+		if (childWidth && typeof childWidth !== 'number') {
+			throw new Error('请检查childWidth的数据类型，仅支持Number类型')
+		}
+		
 		this.itemWidth = childWidth || this.wrap.offsetWidth
 		this.gapWidth = childWidth ? (this.wrap.offsetWidth - childWidth) / 2 : 0
 		this.originChildren.length = this.children.length = React.Children.count(children)
 		
-		if (this.defaultIndex > this.originChildren.length - 1) {
+		if (defaultIndex > this.originChildren.length - 1) {
 			throw new Error('默认下标超过长度，请检查')
 		}
-		
 		if ((loop || autoplay) && this.originChildren.length === 1) {
 			throw new Error('carousel-item长度为1时不允许循环播放或者自动播放，请设置loop属性和autoplay属性为false')
 		}
