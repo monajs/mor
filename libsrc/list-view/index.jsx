@@ -50,13 +50,13 @@ export default class ListView extends Component {
 		}
 		if (angleAbs > 45 && angleAbs < 135) {
 			Tool.removeClass(this.wrap, 'mona-list-view-transition')
-			this.startY = e.targetTouches[0].pageY
+			this.startY = e.center.y
 			this.touching = true
 		}
 	}
 	
 	panmove (e) {
-		const diff = e.targetTouches[0].pageY - this.startY - this.startScrollTop
+		const diff = e.center.y - this.startY - this.startScrollTop
 		if (diff > 0) {
 			e.preventDefault()
 		}

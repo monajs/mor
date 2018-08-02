@@ -1,12 +1,31 @@
 import React, { Component } from 'react'
+import Tool from '../tool'
 
 export default class Hammer extends Component {
 	componentDidMount () {
+		this.isPC = Tool.isPC()
 		this.refs.hammer.addEventListener('touchstart', this.touchStart.bind(this), false)
 		this.refs.hammer.addEventListener('touchmove', this.touchMove.bind(this), false)
 		this.refs.hammer.addEventListener('touchend', this.touchEnd.bind(this), false)
 		this.refs.hammer.addEventListener('touchcancel', this.touchCancel.bind(this), false)
+		this.refs.hammer.addEventListener('mousedown', this.touchStart.bind(this), false)
+		this.refs.hammer.addEventListener('mousemove', this.touchMove.bind(this), false)
+		this.refs.hammer.addEventListener('mouseup', this.touchEnd.bind(this), false)
 		this.refs.hammer.addEventListener('scroll', this.scroll.bind(this), false)
+	}
+	
+	optionEvent (e) {
+		if (this.isPC) {
+			return {
+				x: e.clientX,
+				y: e.clientY
+			}
+		} else {
+			return {
+				x: e.touches[0].pageX,
+				y: e.touches[0].pageY
+			}
+		}
 	}
 	
 	getInfo (prev, next) {
@@ -31,9 +50,10 @@ export default class Hammer extends Component {
 		let pageX, pageY
 		let now = Date.now()
 		
+		const ePoint = this.optionEvent(e)
 		const nextData = {
-			pageY: e.touches[0].pageY,
-			pageX: e.touches[0].pageX,
+			pageY: ePoint.y,
+			pageX: ePoint.x,
 			time: now
 		}
 		
@@ -53,8 +73,8 @@ export default class Hammer extends Component {
 		
 		let info = this.getInfo(preData, nextData)
 		info.center = {
-			y: e.touches[0].pageY,
-			x: e.touches[0].pageX
+			y: ePoint.y,
+			x: ePoint.x
 		}
 		
 		this.prevInfo = nextData
@@ -63,17 +83,21 @@ export default class Hammer extends Component {
 		Object.assign(e, info)
 	}
 	
+	isTouching = false
+	
 	touchStart (e) {
+		this.isTouching = true
 		const { touchstart } = this.props
+		const ePoint = this.optionEvent(e)
 		this.prevInfo = {
 			time: Date.now(),
-			pageY: e.touches[0].pageY,
-			pageX: e.touches[0].pageX
+			pageY: ePoint.y,
+			pageX: ePoint.x
 		}
 		this.startInfo = {
 			time: Date.now(),
-			pageY: e.touches[0].pageY,
-			pageX: e.touches[0].pageX
+			pageY: ePoint.y,
+			pageX: ePoint.x
 		}
 		touchstart && touchstart(e)
 		clearTimeout(this.pressTimer)
@@ -83,20 +107,27 @@ export default class Hammer extends Component {
 	}
 	
 	touchMove (e) {
+		if (!this.isTouching) {
+			return
+		}
 		const { pan, panstart, panmove } = this.props
 		clearTimeout(this.pressTimer)
 		
 		// 是否为touchmove的第一次动作
 		const isStart = !this.currentInfo
-		this.isPan = true // 是否触发了touchmove的第一次动作
+		// 是否触发了touchmove的第一次动作
+		this.isPan = true
 		this.setInfo(e, isStart)
-		
 		isStart && pan && pan(e)
 		isStart && panstart && panstart(e)
 		panmove && panmove(e)
 	}
 	
 	touchEnd (e) {
+		if (!this.isTouching) {
+			return
+		}
+		this.isTouching = false
 		const { pan, panend } = this.props
 		Object.assign(e, this.currentInfo)
 		clearTimeout(this.pressTimer)
