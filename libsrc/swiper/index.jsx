@@ -4,9 +4,11 @@ import { findDOMNode } from 'react-dom'
 import Hammer from '../hammer'
 import Tool from '../tool'
 import CarouselItem from './item'
+import TabItem from './tabItem'
 
 export default class Swiper extends Component {
 	static item = CarouselItem
+	static tabItem = TabItem
 	
 	static defaultProps = {
 		autoplay: true,
@@ -14,10 +16,8 @@ export default class Swiper extends Component {
 		childWidth: 0,
 		autoplayInterval: 3000,
 		dots: true,
-		translateX: 0, // x轴偏移量
 		enableTouch: true, // 是否支持手势
-		loop: false, // 是否循环轮播,
-		dots: true
+		loop: false // 是否循环轮播,
 	}
 	
 	componentWillMount () {
@@ -265,6 +265,7 @@ export default class Swiper extends Component {
 			children,
 			loop,
 			dots,
+			style,
 			className,
 			...props
 		} = this.props
@@ -297,7 +298,8 @@ export default class Swiper extends Component {
 			}
 			return React.cloneElement(v, {
 				itemWidth: this.itemWidth,
-				key: `mona_${i}`
+				key: `mona_${i}`,
+				monaKey: `mona_${i}`
 			})
 		})
 		
@@ -310,6 +312,7 @@ export default class Swiper extends Component {
 				panmove={this.panmove.bind(this)}
 				panstart={this.panstart.bind(this)}
 				panend={this.panend.bind(this)}
+				style={style}
 				ref="wrap">
 				<div className="mona-swiper-group h-full o-h" ref="group" style={groupSty}>
 					{child}

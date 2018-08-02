@@ -182,7 +182,7 @@ export default class Hammer extends Component {
 			touchAction: 'auto',
 			userSelect: 'none',
 			WebkitUserDrag: 'none',
-			WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)'
+			WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
 		})
 		
 		return (

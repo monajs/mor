@@ -12,6 +12,7 @@ import DatePicker from 'views/date-picker'
 import DatePickerRange from 'views/date-picker-range'
 import ListView from 'views/list-view'
 import Swiper from 'views/swiper'
+import Tabs from 'views/tabs'
 
 export default {
 	index: 'index',
@@ -31,5 +32,6 @@ export default {
 		'picker-select': PickerSelect,
 		'list-view': ListView,
 		'swiper': Swiper,
+		'tabs': Tabs
 	}
 }
