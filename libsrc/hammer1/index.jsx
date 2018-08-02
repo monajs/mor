@@ -28,10 +28,12 @@ export default class Hammer extends Component {
 	}
 	
 	setInfo (e, isStart) {
-		let pageX, pageY
 		let now = Date.now()
 		
-		const nextData = {
+		let pageY
+		let pageX
+		
+		let nextData = {
 			pageY: e.touches[0].pageY,
 			pageX: e.touches[0].pageX,
 			time: now
@@ -45,13 +47,14 @@ export default class Hammer extends Component {
 			pageY = this.prevInfo.pageY
 		}
 		
-		const preData = {
+		let preData = {
 			pageY: pageY,
 			pageX: pageX,
 			time: this.prevInfo.time
 		}
 		
 		let info = this.getInfo(preData, nextData)
+		//TODO 目前只考虑单点触控
 		info.center = {
 			y: e.touches[0].pageY,
 			x: e.touches[0].pageX
@@ -65,6 +68,7 @@ export default class Hammer extends Component {
 	
 	touchStart (e) {
 		const { touchstart } = this.props
+		//e.preventDefault();
 		this.prevInfo = {
 			time: Date.now(),
 			pageY: e.touches[0].pageY,
@@ -75,43 +79,54 @@ export default class Hammer extends Component {
 			pageY: e.touches[0].pageY,
 			pageX: e.touches[0].pageX
 		}
-		touchstart && touchstart(e)
-		clearTimeout(this.pressTimer)
-		this.pressTimer = setTimeout(() => {
+		if (touchstart) {
+			touchstart(e)
+		}
+		this.pressTime = setTimeout(() => {
 			this.press(e)
 		}, 500)
 	}
 	
 	touchMove (e) {
 		const { pan, panstart, panmove } = this.props
-		clearTimeout(this.pressTimer)
-		
-		// 是否为touchmove的第一次动作
-		const isStart = !this.currentInfo
-		this.isPan = true // 是否触发了touchmove的第一次动作
+		let isStart = !this.currentInfo
+		clearTimeout(this.pressTime)
+		this.isPan = true
 		this.setInfo(e, isStart)
-		
-		isStart && pan && pan(e)
-		isStart && panstart && panstart(e)
-		panmove && panmove(e)
+		if (this.isPan) {
+			if (isStart && pan) {
+				pan(e)
+			}
+			if (isStart && panstart) {
+				panstart(e)
+			}
+			if (panmove) {
+				panmove(e)
+			}
+		}
 	}
 	
 	touchEnd (e) {
 		const { pan, panend } = this.props
 		Object.assign(e, this.currentInfo)
-		clearTimeout(this.pressTimer)
+		clearTimeout(this.pressTime)
+		let duration = Date.now() - this.startInfo.time
 		
 		this.startInfo = null
 		this.prevInfo = null
 		this.currentInfo = null
 		
 		if (this.isPan) {
-			pan && pan(e)
-			panend && panend(e)
+			if (pan) {
+				pan(e)
+			}
+			if (panend) {
+				panend(e)
+			}
 		} else {
-			const duration = Date.now() - this.startInfo.time
-			// 没有移动，没有触发touchmove
-			(duration < 250) && this.tap(e)
+			if (duration < 250) {
+				this.tap(e)
+			}
 		}
 		this.isPan = false
 	}
@@ -122,26 +137,30 @@ export default class Hammer extends Component {
 		this.prevInfo = null
 		this.currentInfo = null
 		this.isPan = false
-		clearTimeout(this.pressTimer)
-		pancancel && pancancel(e)
+		clearTimeout(this.pressTime)
+		if (this.isPan) {
+			if (pancancel) {
+				pancancel(e)
+			}
+		}
 	}
 	
-	// 滚动事件
 	scroll (e) {
-		const { scroll } = this.props
-		scroll && scroll(e)
+		if (this.props.scroll) {
+			this.props.scroll(e)
+		}
 	}
 	
-	// 点击事件
 	tap (e) {
-		const { tap } = this.props
-		tap && tap(e)
+		if (this.props.tap) {
+			this.props.tap(e)
+		}
 	}
 	
-	// 长按事件
 	press (e) {
-		const { press } = this.props
-		press && press(e)
+		if (this.props.press) {
+			this.props.press(e)
+		}
 	}
 	
 	render () {
@@ -153,8 +172,9 @@ export default class Hammer extends Component {
 			panstart,
 			panmove,
 			panend,
-			press,
 			pancancel,
+			options,
+			setUp,
 			...props
 		} = this.props
 		
