@@ -99,7 +99,6 @@ export default class Swiper extends Component {
 	}
 	
 	panstart (e) {
-		
 		let angleAbs = Math.abs(e.angle)
 		if (angleAbs < 45 || angleAbs > 135) {
 			e.preventDefault()
@@ -206,6 +205,10 @@ export default class Swiper extends Component {
 	
 	// 钩子函数
 	changeIndex (index) {
+		const { loop } = this.props
+		if (loop) {
+			index += 2
+		}
 		this.setIndex(index)
 		this.move()
 	}
@@ -255,7 +258,6 @@ export default class Swiper extends Component {
 			'will-change': 'transform',
 			transform: `translateX(${this.translateX}px)`
 		})
-		
 	}
 	
 	render () {
@@ -315,10 +317,7 @@ export default class Swiper extends Component {
 				<If condition={dots && this.originChildren.length > 1}>
 					<div className="mona-swiper-dots pos-a flex-center w-full">
 						<For each="item" of={Tool.newArray(0, this.originChildren.length)} index="index">
-							<div
-								key={index}
-								className={classNames('item', { 'active': this.trueIndex === index })}
-								onClick={this.changeIndex.bind(this, index)}></div>
+							<div key={index} className={classNames('item', { 'active': this.trueIndex === index })}></div>
 						</For>
 					</div>
 				</If>
