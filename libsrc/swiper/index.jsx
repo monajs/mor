@@ -217,7 +217,7 @@ export default class Swiper extends Component {
 		if (!this.group) {
 			return
 		}
-		const { beforeChange, loop, afterChange } = this.props
+		const { beforeChange, loop, afterChange, dots } = this.props
 		this.isTranslating = true
 		!isFirst && Tool.addClass(this.group, 'mona-swiper-transition') // 避免首次加载定位的时候有动画
 		this.moveOption(() => {
@@ -246,7 +246,7 @@ export default class Swiper extends Component {
 			this.isTranslating = false
 			this.trueIndex = this.currentIndex
 		}
-		this.setState({})
+		dots && this.setState({})
 		!isFirst && afterChange && afterChange(this.trueIndex)
 	}
 	
