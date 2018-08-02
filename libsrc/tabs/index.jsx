@@ -55,6 +55,7 @@ export default class Tabs extends Component {
 			enableTouch,
 			beforeChange,
 			defaultIndex,
+			enableDamp,
 			tabs,
 			children
 		} = this.props
@@ -62,6 +63,7 @@ export default class Tabs extends Component {
 			enableTouch,
 			beforeChange,
 			defaultIndex,
+			enableDamp,
 			loop: false,
 			autoplay: false,
 			dots: false

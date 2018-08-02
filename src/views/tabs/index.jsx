@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Tabs } from 'mona'
+import ListView from '../list-view'
 
 const TabItem = Tabs.item
 
@@ -8,7 +9,8 @@ export default class Test extends Component {
 		console.log(index)
 	}
 	
-	test () {
+	tab (index) {
+		this.refs.tabs.changeIndex(index)
 		// console.log(123)
 	}
 	
@@ -21,20 +23,20 @@ export default class Test extends Component {
 	render () {
 		return (
 			<div className="full">
-				<Tabs defaultIndex={1} tabs={this.tabs} afterChange={this.afterChange.bind(this)} className="tabs-pannel full">
+				<Tabs ref="tabs" defaultIndex={1} tabs={this.tabs} afterChange={this.afterChange.bind(this)} className="tabs-pannel full">
 					<TabItem>
 						<div className="h-full item">
-							<button>切换wrap0</button>
+							<button onClick={this.tab.bind(this, 1)}>切换wrap0</button>
 						</div>
 					</TabItem>
 					<TabItem>
 						<div className="h-full item">
-							<button>切换wrap1</button>
+							<ListView />
 						</div>
 					</TabItem>
 					<TabItem>
 						<div className="h-full item">
-							<button>切换wrap2</button>
+							<button onClick={this.tab.bind(this, 0)}>切换wrap2</button>
 						</div>
 					</TabItem>
 				</Tabs>

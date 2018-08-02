@@ -17,6 +17,7 @@ export default class Swiper extends Component {
 		autoplayInterval: 3000,
 		dots: true,
 		enableTouch: true, // 是否支持手势
+		enableDamp: true, // 是否支持弹性阻尼
 		loop: false // 是否循环轮播,
 	}
 	
@@ -117,6 +118,7 @@ export default class Swiper extends Component {
 	}
 	
 	panmove (e) {
+		const { enableDamp } = this.props
 		if (!this.verifyPan() || e.deltaX === 0 || !this.isTouching) {
 			return
 		}
@@ -125,11 +127,15 @@ export default class Swiper extends Component {
 			e.preventDefault()
 		}
 		if (this.currentIndex === 0 && e.deltaX > 0) {
-			// 滚动到第一屏且loop是false的场景
-			this.translateX = this.currentTranslateX + e.deltaX / 2.5 // 阻尼效果
+			if (enableDamp) {
+				// 滚动到第一屏且loop是false的场景
+				this.translateX = this.currentTranslateX + e.deltaX / 2.5 // 阻尼效果
+			}
 		} else if (this.currentIndex === (this.children.length - 1) && e.deltaX < 0) {
-			// 滚动到最后一屏且loop是false的场景
-			this.translateX = this.currentTranslateX + e.deltaX / 2.5 // 阻尼效果
+			if (enableDamp) {
+				// 滚动到最后一屏且loop是false的场景
+				this.translateX = this.currentTranslateX + e.deltaX / 2.5 // 阻尼效果
+			}
 		} else {
 			this.translateX = this.currentTranslateX + e.deltaX
 		}
