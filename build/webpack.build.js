@@ -59,11 +59,16 @@ config.plugins = (config.plugins || []).concat([
 
 fs.remove(path.resolve(__dirname, '../assets'))
 console.log('文件夹assets已删除')
+fs.remove(path.resolve(__dirname, '../docs'));
+console.log('文件夹docs已删除');
 
 console.log('正在打包')
 var compiler = webpack(config, (err, stats) => {
 	console.log(err)
 	console.log('打包成功')
 	console.log('[webpack]', stats.toString({}))
+	fs.copy(path.resolve(__dirname, '../assets'), path.resolve(__dirname, '../docs'), function () {
+		console.log('已复制assets到docs');
+	});
 })
 
