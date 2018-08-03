@@ -8,7 +8,7 @@ export default class Test extends Component {
 		Toast.config({
 			message: 123,
 			duration: 1500,
-			type: 'error'
+			type: 'success'
 		})
 	}
 	

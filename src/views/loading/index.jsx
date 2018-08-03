@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Loading, MountRoot } from 'mona'
+import PageModel from 'components/pageModel'
+import Data from 'static/data'
 
 export default class Test extends Component {
 	open () {
@@ -9,9 +11,12 @@ export default class Test extends Component {
 		}, 2000)
 	}
 	
+	data = Data.getComponentItemInfo('loading')
+	
 	render () {
+		console.log(this.data)
 		return (
-			<div onClick={this.open.bind(this)}>open</div>
+			<PageModel {...this.data}>123</PageModel>
 		)
 	}
 }

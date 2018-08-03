@@ -1,0 +1,60 @@
+class Data {
+	constructor () {
+		this.setIndexData()
+	}
+	
+	components = {
+		base: {
+			name: '基础组件',
+			map: {
+				loading: { name: 'Loading - 加载', url: 'loading', desc: '加载中'  },
+				toast: { name: 'Toast - 提示', url: 'toast' },
+				modal: { name: 'Modal - 弹框', url: 'modal', desc: '支持自定义弹框以及dialog' },
+				tabs: { name: 'Tabs - 切换面板', url: 'tabs', desc: '支持手势滑动切换' },
+				listView: { name: 'ListView - 列表', url: 'list-view', desc: '支持瀑布流以及下拉刷新' },
+				swiper: { name: 'Swiper - 走马灯', url: 'swiper', desc: '支持自定义wrap' },
+				popup: { name: 'popup - 弹层', url: 'popup' },
+				datePicker: { name: 'DatePicker - 时间日期事件选择器', url: 'date-picker' },
+				datePickerRange: { name: 'DatePickerRange - 日期区间选择器', url: 'date-picker-range' },
+				layout: { name: 'layout - 布局组件', url: 'layout', desc: 'Row、Col' },
+				modalSelect: { name: 'ModalSelect - 列表数据选择器', url: 'modal-select' },
+				pickerSelect: { name: 'PickerSelect - 列表数据滚动选择器', url: 'picker-select' }
+			}
+		},
+		other: {
+			name: '其他',
+			map: {
+				hammer: { name: 'Hammer - 手势库', url: 'hammer', desc: '迷你手势库' },
+				pickerView: { name: 'PickerView - 滚动面板', url: 'picker-view' },
+				events: { name: 'Events - 事件类', url: 'events', desc: '监听者模式' }
+			}
+		}
+	}
+	
+	setIndexData () {
+		this.indexData = []
+		this.allData = {}
+		for (let v in this.components) {
+			let res = {}
+			const item = this.components[v]
+			res.name = item.name
+			let list = []
+			for (let i in item.map) {
+				list.push(item.map[i])
+				this.allData[i] = item.map[i]
+			}
+			res.list = list
+			this.indexData.push(res)
+		}
+	}
+	
+	getIndexData () {
+		return this.indexData
+	}
+	
+	getComponentItemInfo (name) {
+		return this.allData[name]
+	}
+}
+
+export default new Data
