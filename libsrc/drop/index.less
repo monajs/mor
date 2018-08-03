@@ -6,12 +6,20 @@
 		transform-origin: 50% 0%;
 		display: none;
 		overflow: hidden;
-		transform: scaleY(0);
-		transition: transform 1s ease-in-out;
 		&.open {
-			transform-origin: top;
+			animation: monaDropShowContent @dropAnimDuration @dropAnimFunction;
+			transform-origin: 50% 0%;
 			display: block;
-			transform: scaleY(1);
 		}
+	}
+}
+
+@keyframes monaDropShowContent {
+	0% {
+		transform: scaleY(0.1);
+	}
+
+	100% {
+		transform: scaleY(1);
 	}
 }

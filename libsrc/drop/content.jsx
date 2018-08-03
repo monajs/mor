@@ -4,9 +4,10 @@ import DropCtrl from './ctrl'
 
 export default class DropContent extends Component {
 	isOpen = false
+	eventName = 'monaDropCtrl_' + this.props.name
 	
 	componentWillMount () {
-		DropCtrl.on('monaDropCtrl', isOpen => {
+		DropCtrl.on(this.eventName, isOpen => {
 			if (this.isOpen === isOpen) {
 				return
 			}
@@ -18,12 +19,14 @@ export default class DropContent extends Component {
 	render () {
 		const {
 			className,
+			name,
+			isOpen,
 			children,
 			...props
 		} = this.props
 		
 		return (
-			<div className={classNames('mona-drop-content', className, { 'open': this.isOpen })}>
+			<div className={classNames('mona-drop-content', className, { 'open': this.isOpen })} {...props}>
 				{children}
 			</div>
 		)
