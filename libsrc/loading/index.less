@@ -1,0 +1,44 @@
+.mona-loading {
+	z-index: @loadingZIndex;
+	&.mask {
+		background-color: @loadingMask;
+	}
+	.mona-wrap {
+		padding-top: 15px;
+		background-color: @loadingDefaultWrapBgColor;
+		border-radius: @loadingDefaultWrapBorderRadius;
+		width: @loadingDefaultWrapWidth;
+		height: @loadingDefaultWrapHeight;
+		box-shadow: @loadingDefaultBoxShadow;
+	}
+	.mona-wrap-anim {
+		width: 65px;
+		height: 15px;
+		background: url(https://s10.mogucdn.com/mlcdn/c45406/180529_52b9f3gkk7k0b97ib2j095d74al3l_6500x30.png) 0 0 no-repeat; /*no2rem*/
+		background-size: 5000% 100%;
+		animation: monaLoadingGif steps(49) 2s infinite both;
+	}
+	.mona-wrap-text {
+		font-size: @loadingDefaultWrapFontSize;
+		margin-top: 10px;
+		color: #040404;
+	}
+}
+
+@keyframes monaLoadingGif {
+	from {
+		background-position: 0%;
+	}
+	to {
+		background-position: 100%;
+	}
+}
+
+@-webkit-keyframes monaLoadingGif {
+	from {
+		background-position: 0%;
+	}
+	to {
+		background-position: 100%;
+	}
+}
