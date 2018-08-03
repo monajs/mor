@@ -1,0 +1,17 @@
+.mona-drop {
+	.mona-drop-title {
+
+	}
+	.mona-drop-content {
+		transform-origin: 50% 0%;
+		display: none;
+		overflow: hidden;
+		transform: scaleY(0);
+		transition: transform 1s ease-in-out;
+		&.open {
+			transform-origin: top;
+			display: block;
+			transform: scaleY(1);
+		}
+	}
+}
