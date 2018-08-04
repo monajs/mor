@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Row, Col } from 'mona'
 
 export default class PageModel extends Component {
 	render () {
