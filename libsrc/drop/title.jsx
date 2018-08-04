@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import DropCtrl from './ctrl'
 
 export default class DropTitle extends Component {
-	eventName = 'monaDropCtrl_' + this.props.name
+	eventName = this.props.eventName
 	
 	componentDidMount () {
 		this.isOpen = this.props.isOpen
@@ -18,7 +18,7 @@ export default class DropTitle extends Component {
 	render () {
 		const {
 			className,
-			name,
+			eventName,
 			isOpen,
 			children,
 			...props

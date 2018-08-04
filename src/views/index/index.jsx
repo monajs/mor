@@ -6,8 +6,8 @@ const DropTitle = Drop.title
 const DropContent = Drop.content
 
 export default class Home extends Component {
-	open (isOpen, name) {
-		// console.log(isOpen, name)
+	open (isOpen, index) {
+		console.log(isOpen, index)
 	}
 	
 	data = Data.getIndexData()
@@ -20,9 +20,9 @@ export default class Home extends Component {
 		return (
 			<div className="page-index">
 				<h1 className="page-title flex-center">Mor</h1>
-				<div className="page-desc text-center">一款让你感到幸福的 React 组件库</div>
-				<For of={this.data||[]} each="item" index="index">
-					<Drop className="component-item" onChange={this.open.bind(this)} key={index} name={index}>
+				<div className="page-desc text-center">让你感到幸福的 React 组件库</div>
+				<For of={this.data || []} each="item" index="index">
+					<Drop className="component-item" onChange={this.open.bind(this, index)} key={index}>
 						<DropTitle className="header flex-center-y">{item.name}</DropTitle>
 						<DropContent className="content">
 							<For of={item.list} each="child" index="childIndex">

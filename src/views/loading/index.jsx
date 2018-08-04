@@ -38,7 +38,6 @@ export default class Test extends Component {
 	}
 	
 	render () {
-		console.log(this.data)
 		return (
 			<PageModel {...this.data}>
 				<DemoBlock title="基础用法" desc="2s后自动关闭">

@@ -4,7 +4,7 @@ import DropCtrl from './ctrl'
 
 export default class DropContent extends Component {
 	isOpen = false
-	eventName = 'monaDropCtrl_' + this.props.name
+	eventName = this.props.eventName
 	
 	componentWillMount () {
 		DropCtrl.on(this.eventName, isOpen => {
@@ -19,7 +19,7 @@ export default class DropContent extends Component {
 	render () {
 		const {
 			className,
-			name,
+			eventName,
 			isOpen,
 			children,
 			...props
