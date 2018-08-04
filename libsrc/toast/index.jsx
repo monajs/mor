@@ -12,7 +12,7 @@ export default class Toast extends Component {
 			this.node = document.createElement('div')
 			document.body.appendChild(this.node)
 		}
-		const { duration = 3000 } = options
+		const { duration = 2000 } = options
 		ReactDOM.render(<Toast {...options} />, this.node)
 		clearTimeout(this.timeout)
 		this.timeout = setTimeout(() => {

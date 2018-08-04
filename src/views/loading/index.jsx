@@ -40,16 +40,16 @@ export default class Test extends Component {
 	render () {
 		return (
 			<PageModel {...this.data}>
-				<DemoBlock title="基础用法" desc="2s后自动关闭">
+				<DemoBlock title="基础用法" desc="demo1">
 					<DemoButton className="w-full" onClick={this.demo1.bind(this)}>打开</DemoButton>
 				</DemoBlock>
-				<DemoBlock title="是否有蒙层" desc="默认:无，2s后自动关闭">
+				<DemoBlock title="自定义用法" desc="demo2 - 有蒙层，默认无蒙层">
 					<DemoButton className="w-full" onClick={this.demo2.bind(this)}>打开</DemoButton>
 				</DemoBlock>
-				<DemoBlock title="自定义文案" desc="默认:'加载中'，2s后自动关闭">
+				<DemoBlock title="自定义用法" desc="demo3 - 更改提示文案，默认文案'加载中'">
 					<DemoButton className="w-full" onClick={this.demo3.bind(this)}>打开</DemoButton>
 				</DemoBlock>
-				<DemoBlock title="自定义模版" desc="2s后自动关闭">
+				<DemoBlock title="自定义用法" desc="demo4 - 自定义展示模版">
 					<DemoButton className="w-full" onClick={this.demo4.bind(this)}>打开</DemoButton>
 				</DemoBlock>
 			</PageModel>

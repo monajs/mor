@@ -44,6 +44,8 @@ export default class Modal extends Component {
 		}
 		if (nextProps.visible === true) {
 			this.show()
+		} else if (nextProps.visible === false) {
+			this.hide()
 		}
 	}
 	
