@@ -4,6 +4,7 @@ import PageModel from 'components/pageModel'
 import DemoBlock from 'components/demoBlock'
 import DemoButton from 'components/demoButton'
 import Data from 'static/data'
+import Util from 'core/util'
 
 export default class Test extends Component {
 	data = Data.getComponentItemInfo('modal')
@@ -50,12 +51,12 @@ export default class Test extends Component {
 	
 	confirm () {
 		this.hide()
-		console.log('confirm')
+		Util.info('confirm')
 	}
 	
 	cancel (type) {
 		this.hide()
-		console.log(type)
+		Util.info(type)
 	}
 	
 	hide () {

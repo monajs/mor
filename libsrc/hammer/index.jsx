@@ -135,6 +135,7 @@ export default class Hammer extends Component {
 		Object.assign(e, this.currentInfo)
 		clearTimeout(this.pressTimer)
 		
+		const duration = Date.now() - this.startInfo.time
 		this.startInfo = null
 		this.prevInfo = null
 		this.currentInfo = null
@@ -143,7 +144,6 @@ export default class Hammer extends Component {
 			pan && pan(e)
 			panend && panend(e)
 		} else {
-			const duration = Date.now() - this.startInfo.time
 			// 没有移动，没有触发touchmove
 			(duration < 250) && this.tap(e)
 		}

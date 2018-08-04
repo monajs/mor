@@ -57,7 +57,9 @@ export default class Tabs extends Component {
 			defaultIndex,
 			enableDamp,
 			tabs,
-			children
+			children,
+			afterChange,
+			...props
 		} = this.props
 		const swiperProps = {
 			enableTouch,
@@ -77,7 +79,7 @@ export default class Tabs extends Component {
 			height: `calc(100% - ${tabs && tabs.length > 0 ? '45px' : '0px'})`
 		}
 		return (
-			<div className={classNames('mona-tabs full', className)}>
+			<div className={classNames('mona-tabs full', className)} {...props}>
 				<If condition={tabs && tabs.length > 0}>
 					<div className="mona-tabs-header d-f pos-r">
 						<For of={tabs} index="index" each="item">

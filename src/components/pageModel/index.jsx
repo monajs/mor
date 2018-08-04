@@ -13,7 +13,7 @@ export default class PageModel extends Component {
 			<div className={classNames('page-model flex-direction-y flex-center-y', className)}>
 				<div className="page-model-title d-ib">{name}</div>
 				<div className="page-model-desc text-center">{desc}</div>
-				<div className="page-model-wrap full">{children}</div>
+				<div className="page-model-wrap w-full flex-1">{children}</div>
 			</div>
 		)
 	}
