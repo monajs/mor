@@ -86,7 +86,8 @@ export default class Test extends Component {
 					<DemoBlock title="自定义用法" desc="demo5 - 无取消按钮">
 						<DemoButton className="w-full" onClick={this.demo5.bind(this)}>打开</DemoButton>
 					</DemoBlock>
-					<DemoBlock title="基础用法(dialog)" desc={<pre>api调用方式<br />所有参数和'节点插入方式'提供的一致</pre>}>
+					<DemoBlock title="基础用法(dialog)" desc={
+						<pre>api调用方式 Modal.confirm(options)<br />所有参数和'节点插入方式'提供的一致</pre>}>
 						<DemoButton className="w-full" onClick={this.open.bind(this)}>打开</DemoButton>
 					</DemoBlock>
 				</PageModel>
@@ -122,7 +123,7 @@ export default class Test extends Component {
 					onCancel={this.cancel.bind(this)}
 					onConfirm={this.confirm.bind(this)}>
 					<div>demo4 - 无底部，且蒙层不可关闭</div>
-					<div style={{margin: 15, color: '#333'}} onClick={this.hide.bind(this)}>点我关闭</div>
+					<div style={{ margin: 15, color: '#333' }} onClick={this.hide.bind(this)}>点我关闭</div>
 				</Modal>
 				<Modal
 					visible={this.demo5Visible}

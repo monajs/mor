@@ -7,10 +7,11 @@ export default class DemoBlock extends Component {
 			title,
 			desc,
 			className,
-			children
+			children,
+			...props
 		} = this.props
 		return (
-			<div className={classNames('demo-block', className)}>
+			<div className={classNames('demo-block', className)} {...props}>
 				<div className="demo-block-title">{title}</div>
 				<div className="demo-block-wrap">
 					<div className="demo-block-desc">{desc}</div>

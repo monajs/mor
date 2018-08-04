@@ -4,13 +4,16 @@ import Tool from '../tool'
 export default class Hammer extends Component {
 	componentDidMount () {
 		this.isPC = Tool.isPC()
-		this.refs.hammer.addEventListener('touchstart', this.touchStart.bind(this), false)
-		this.refs.hammer.addEventListener('touchmove', this.touchMove.bind(this), false)
-		this.refs.hammer.addEventListener('touchend', this.touchEnd.bind(this), false)
-		this.refs.hammer.addEventListener('touchcancel', this.touchCancel.bind(this), false)
-		this.refs.hammer.addEventListener('mousedown', this.touchStart.bind(this), false)
-		this.refs.hammer.addEventListener('mousemove', this.touchMove.bind(this), false)
-		this.refs.hammer.addEventListener('mouseup', this.touchEnd.bind(this), false)
+		if (this.isPC) {
+			this.refs.hammer.addEventListener('mousedown', this.touchStart.bind(this), false)
+			this.refs.hammer.addEventListener('mousemove', this.touchMove.bind(this), false)
+			this.refs.hammer.addEventListener('mouseup', this.touchEnd.bind(this), false)
+		} else {
+			this.refs.hammer.addEventListener('touchstart', this.touchStart.bind(this), false)
+			this.refs.hammer.addEventListener('touchmove', this.touchMove.bind(this), false)
+			this.refs.hammer.addEventListener('touchend', this.touchEnd.bind(this), false)
+			this.refs.hammer.addEventListener('touchcancel', this.touchCancel.bind(this), false)
+		}
 		this.refs.hammer.addEventListener('scroll', this.scroll.bind(this), false)
 	}
 	
