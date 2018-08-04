@@ -1418,15 +1418,67 @@ body,
 .z-index-3 {
   z-index: 3;
 }
+.page-model {
+  padding: 30px 10px;
+}
+.page-model .page-model-title {
+  font-size: 14px;
+  padding: 0 0 8px;
+  color: #a2a2a2;
+  border-bottom: 1px solid #b7b6b6;
+}
+.page-model .page-model-desc {
+  font-size: 13px;
+  color: #b7b6b6;
+  margin: 8px 0 10px;
+}
+.page-model .page-model-wrap {
+  font-size: 13px;
+}
+.demo-button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: 0 15px;
+  border: 1px solid #e5e5e5;
+  font-size: 14px;
+  height: 40px;
+  line-height: 38px;
+  border-radius: 3px;
+  text-align: center;
+  -webkit-appearance: none;
+  -webkit-text-size-adjust: 100%;
+  background: #fff;
+}
+.demo-block {
+  margin-bottom: 20px;
+}
+.demo-block .demo-block-title {
+  font-size: 14px;
+  color: rgba(69, 90, 100, .6);
+  padding: 20px 15px 10px 5px;
+}
+.demo-block .demo-block-wrap {
+  padding: 10px;
+  background: #fff;
+  -webkit-box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, .2);
+          box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, .2);
+}
+.demo-block .demo-block-desc {
+  font-size: 13px;
+  color: #b7b6b6;
+  margin-bottom: 10px;
+}
 .page-index {
   padding: 60px 15px 30px;
 }
-.page-index .title {
+.page-index .page-title {
   font-size: 40px;
   color: #000;
   margin-bottom: 15px;
 }
-.page-index .desc {
+.page-index .page-desc {
   font-size: 14px;
   color: #455a64;
   margin: 0 0 60px;
@@ -1475,6 +1527,13 @@ body,
 }
 .tabs-pannel .item {
   background-color: #fff;
+}
+.demo-loading-template {
+  width: 90px;
+  height: 50px;
+  background: #f5f5f5;
+  border: 1px solid #dadada;
+  border-radius: 3px;
 }
 #appWrapper {
   height: 100%;
