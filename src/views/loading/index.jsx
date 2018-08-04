@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Loading, MountRoot } from 'mona'
+import { Loading } from 'mona'
 import PageModel from 'components/pageModel'
 import DemoBlock from 'components/demoBlock'
 import DemoButton from 'components/demoButton'

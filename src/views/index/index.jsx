@@ -7,7 +7,7 @@ const DropContent = Drop.content
 
 export default class Home extends Component {
 	open (isOpen, index) {
-		console.log(isOpen, index)
+		// console.log(isOpen, index)
 	}
 	
 	data = Data.getIndexData()

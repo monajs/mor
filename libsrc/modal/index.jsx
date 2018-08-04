@@ -47,6 +47,10 @@ export default class Modal extends Component {
 		}
 	}
 	
+	componentWillUnmount () {
+		this.visible = false
+	}
+	
 	preventDefault (e) {
 		e.preventDefault()
 	}
@@ -112,7 +116,7 @@ export default class Modal extends Component {
 					</If>
 					<div className="mona-modal-wrap pos-r">
 						<If condition={title}>
-							<div className="mona-modal-header" dangerouslySetInnerHTML={{ __html: title }}></div>
+							<div className="mona-modal-header">{title}</div>
 						</If>
 						<div className={classNames('mona-modal-body mona-b-b title', { 'no-title': !title })}>
 							{children}

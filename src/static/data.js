@@ -8,7 +8,7 @@ class Data {
 			name: '基础组件',
 			map: {
 				loading: { name: 'Loading - 加载', url: 'loading', desc: '加载中'  },
-				toast: { name: 'Toast - 提示', url: 'toast' },
+				toast: { name: 'Toast - 提示', url: 'toast', desc: '提示' },
 				modal: { name: 'Modal - 弹框', url: 'modal', desc: '支持自定义弹框以及dialog' },
 				tabs: { name: 'Tabs - 切换面板', url: 'tabs', desc: '支持手势滑动切换' },
 				listView: { name: 'ListView - 列表', url: 'list-view', desc: '支持瀑布流以及下拉刷新' },
