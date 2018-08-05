@@ -273,6 +273,7 @@ export default class Swiper extends Component {
 			dots,
 			style,
 			className,
+			ctrl, // 控制器，目前tabs在用
 			...props
 		} = this.props
 		
@@ -305,7 +306,7 @@ export default class Swiper extends Component {
 			return React.cloneElement(v, {
 				itemWidth: this.itemWidth,
 				key: `mona_${i}`,
-				monaKey: `mona_${i}`
+				ctrl
 			})
 		})
 		

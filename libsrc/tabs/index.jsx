@@ -5,6 +5,11 @@ import TabItem from './item'
 import TabsCtrl from './ctrl'
 
 export default class Tabs extends Component {
+	constructor (props) {
+		super(props)
+		this.ctrl = new TabsCtrl
+	}
+	
 	static item = TabItem
 	static defaultProps = {
 		enableTouch: true,
@@ -22,7 +27,7 @@ export default class Tabs extends Component {
 	keysList = new Set() // 存储tabsItem已经可以展示的项
 	
 	componentDidMount () {
-		this.keysList.add(TabsCtrl.getTabsItemKey()[this.currentIndex])
+		this.keysList.add(this.ctrl.getTabsItemKey()[this.currentIndex])
 		this.ctrlItem()
 	}
 	
@@ -45,8 +50,8 @@ export default class Tabs extends Component {
 	}
 	
 	ctrlItem () {
-		this.keysList.add(TabsCtrl.getTabsItemKey()[this.currentIndex])
-		TabsCtrl.emit('tabsIndexChange', this.keysList)
+		this.keysList.add(this.ctrl.getTabsItemKey()[this.currentIndex])
+		this.ctrl.emit('tabsIndexChange', this.keysList)
 	}
 	
 	render () {
@@ -88,7 +93,7 @@ export default class Tabs extends Component {
 						<div className="pos-a index-mark" style={indexMarkSty}></div>
 					</div>
 				</If>
-				<Swiper {...swiperProps} afterChange={this.updateIndex.bind(this)} ref="swiper" style={swiperSty}>
+				<Swiper {...swiperProps} afterChange={this.updateIndex.bind(this)} ref="swiper" style={swiperSty} ctrl={this.ctrl}>
 					{children}
 				</Swiper>
 			</div>

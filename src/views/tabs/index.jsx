@@ -34,8 +34,8 @@ export default class Test extends Component {
 						<TabItem className="flex-center">第三面板</TabItem>
 					</Tabs>
 				</DemoBlock>
-				<DemoBlock title="基础用法" desc="demo2 - 调用api切换面板">
-					<Tabs style={{ height: 200 }} ref="tabs" tabs={this.tabs} afterChange={this.afterChange.bind(this)} className="tabs-pannel">
+				<DemoBlock title="基础用法" desc="demo2 - 调用api切换面板,默认第二面板">
+					<Tabs style={{ height: 200 }} ref="tabs" defaultIndex={1} tabs={this.tabs} afterChange={this.afterChange.bind(this)} className="tabs-pannel">
 						<TabItem className="flex-center">
 							<DemoButton onClick={this.tab.bind(this, 1)}>切换wrap to 1</DemoButton>
 						</TabItem>

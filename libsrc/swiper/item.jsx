@@ -7,7 +7,7 @@ export default class SwiperItem extends Component {
 			children,
 			className,
 			style,
-			monaKey,
+			ctrl,
 			itemWidth,
 			...props
 		} = this.props

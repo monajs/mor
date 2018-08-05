@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
-import DropCtrl from './ctrl'
 
 export default class DropTitle extends Component {
-	eventName = this.props.eventName
-	
 	componentDidMount () {
+		const { ctrl } = this.props
 		this.isOpen = this.props.isOpen
-		DropCtrl.emit(this.eventName, this.isOpen)
+		ctrl.emit('monaDropCtrl', this.isOpen)
 	}
 	
 	ctrlContent () {
+		const { ctrl } = this.props
 		this.isOpen = !this.isOpen
-		DropCtrl.emit(this.eventName, this.isOpen)
+		ctrl.emit('monaDropCtrl', this.isOpen)
 	}
 	
 	render () {
@@ -20,6 +19,7 @@ export default class DropTitle extends Component {
 			className,
 			eventName,
 			isOpen,
+			ctrl,
 			children,
 			...props
 		} = this.props

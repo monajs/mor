@@ -1,6 +1,6 @@
 import Events from '../events'
 
-class TabsCtrl extends Events {
+export default class TabsCtrl extends Events {
 	itemKeyList = [] // 控制tabsItem的加载
 	
 	setTabItemKey (key) {
@@ -14,5 +14,3 @@ class TabsCtrl extends Events {
 		return this.itemKeyList
 	}
 }
-
-export default new TabsCtrl

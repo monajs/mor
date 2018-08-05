@@ -5,6 +5,11 @@ import DropContent from './content'
 import DropCtrl from './ctrl'
 
 export default class Drop extends Component {
+	constructor (props) {
+		super(props)
+		this.ctrl = new DropCtrl
+	}
+	
 	static title = DropTitle
 	static content = DropContent
 	
@@ -13,12 +18,15 @@ export default class Drop extends Component {
 	}
 	
 	componentWillMount () {
-		this.eventName = 'monaDropCtrl_' + this._reactInternalInstance._currentElement.key
 		const { onChange } = this.props
 		
-		DropCtrl.on(this.eventName, isOpen => {
+		this.ctrl.on('monaDropCtrl', isOpen => {
 			onChange && onChange(isOpen)
 		})
+	}
+	
+	componentWillUnmount () {
+		this.ctrl.off('monaDropCtrl')
 	}
 	
 	render () {
@@ -36,7 +44,7 @@ export default class Drop extends Component {
 				return
 			}
 			if (v.type === DropTitle || v.type === DropContent) {
-				return React.cloneElement(v, { isOpen: isOpen, eventName: this.eventName })
+				return React.cloneElement(v, { isOpen: isOpen, ctrl: this.ctrl })
 			} else {
 				return v
 			}

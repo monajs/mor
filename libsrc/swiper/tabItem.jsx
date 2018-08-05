@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
-import TabsCtrl from '../tabs/ctrl'
+import KeyGenerate from '../key-generate'
 
 export default class SwiperTabItem extends Component {
 	componentWillMount () {
-		this.key = `tabs-item_${this.props.monaKey}`
-		console.log(`设置tabsItem的唯一key${this.key}`)
-		TabsCtrl.setTabItemKey(this.key)
-		TabsCtrl.on('tabsIndexChange', (keysList) => {
+		const { ctrl } = this.props
+		this.key = KeyGenerate.getMonaKey()
+		console.log(`设置tabsItem的唯一key - ${this.key}`)
+		ctrl.setTabItemKey(this.key)
+		ctrl.on('tabsIndexChange', (keysList) => {
+			console.log(123)
 			if (this.isShow) {
 				return
 			}
@@ -19,7 +21,8 @@ export default class SwiperTabItem extends Component {
 	isShow = false
 	
 	componentWillUnmount () {
-		TabsCtrl.off('tabsIndexChange')
+		const { ctrl } = this.props
+		ctrl.off('tabsIndexChange')
 	}
 	
 	render () {
@@ -27,8 +30,8 @@ export default class SwiperTabItem extends Component {
 			children,
 			className,
 			style,
-			monaKey,
 			itemWidth,
+			ctrl,
 			...props
 		} = this.props
 		const sty = Object.assign({}, style, {

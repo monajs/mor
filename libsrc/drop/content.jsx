@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
-import DropCtrl from './ctrl'
 
 export default class DropContent extends Component {
 	isOpen = false
-	eventName = this.props.eventName
 	
 	componentWillMount () {
-		DropCtrl.on(this.eventName, isOpen => {
+		const { ctrl } = this.props
+		ctrl.on('monaDropCtrl', isOpen => {
 			if (this.isOpen === isOpen) {
 				return
 			}
@@ -19,8 +18,8 @@ export default class DropContent extends Component {
 	render () {
 		const {
 			className,
-			eventName,
 			isOpen,
+			ctrl,
 			children,
 			...props
 		} = this.props
