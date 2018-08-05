@@ -1024,8 +1024,6 @@
 .mona-drop .mona-drop-content.open {
   -webkit-animation: monaDropShowContent 200ms cubic-bezier(0.06, 0.36, 0.46, 0.99);
           animation: monaDropShowContent 200ms cubic-bezier(0.06, 0.36, 0.46, 0.99);
-  -webkit-transform-origin: 50% 0%;
-          transform-origin: 50% 0%;
   display: block;
 }
 @-webkit-keyframes monaDropShowContent {

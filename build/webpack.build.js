@@ -47,9 +47,9 @@ config.plugins = (config.plugins || []).concat([
 	//想看包文件的情况，可以打开
 	//new BundleAnalyzerPlugin(),
 	new ExtractTextPlugin('./[name].[chunkhash].css'),
-	new CopyWebpackPlugin([{
-		from: 'src/static',
-	}]),
+	// new CopyWebpackPlugin([{
+	// 	from: 'src/static',
+	// }]),
 	
 	new HtmlWebpackPlugin({
 		filename: '../assets/index.html',
