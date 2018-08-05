@@ -14,9 +14,9 @@ class Data {
 				tabs: { name: 'Tabs - 切换面板', url: 'tabs', desc: '支持手势滑动切换' },
 				swiper: { name: 'Swiper - 走马灯', url: 'swiper', desc: '支持自定义wrap' },
 				popup: { name: 'popup - 弹层', url: 'popup' },
+				layout: { name: 'layout - 布局组件', url: 'layout', desc: 'Row、Col' },
 				datePicker: { name: 'DatePicker - 时间日期事件选择器', url: 'date-picker' },
 				datePickerRange: { name: 'DatePickerRange - 日期区间选择器', url: 'date-picker-range' },
-				layout: { name: 'layout - 布局组件', url: 'layout', desc: 'Row、Col' },
 				modalSelect: { name: 'ModalSelect - 列表数据选择器', url: 'modal-select' },
 				pickerSelect: { name: 'PickerSelect - 列表数据滚动选择器', url: 'picker-select' }
 			}
