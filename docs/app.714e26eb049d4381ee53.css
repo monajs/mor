@@ -1419,6 +1419,9 @@ pre {
 .z-index-3 {
   z-index: 3;
 }
+.m-t-10 {
+  margin-top: 10px;
+}
 .page-model {
   padding: 30px 10px;
 }
@@ -1518,14 +1521,11 @@ pre {
 .list-view-item .info {
   padding-left: 20px;
 }
-.carousel-pannel {
-  height: auto;
+.swiper-wrap {
+  height: 150px;
 }
-.tabs-pannel {
-  height: 100%;
-}
-.tabs-pannel .item {
-  background-color: #fff;
+.swiper-wrap .swiper-item {
+  color: #fff;
 }
 .demo-loading-template {
   width: 90px;
@@ -1533,6 +1533,34 @@ pre {
   background: #f5f5f5;
   border: 1px solid #dadada;
   border-radius: 3px;
+}
+.layout-wrap .layout-item,
+.layout-wrap-1 .layout-item {
+  height: 40px;
+  padding: 3px 5px;
+  background: #8bc34a;
+  color: #fff;
+  font-size: 14px;
+}
+.layout-wrap .layout-item:nth-child(odd),
+.layout-wrap-1 .layout-item:nth-child(odd) {
+  background: #03a9f4;
+}
+.layout-wrap .layout-item-1 .inner,
+.layout-wrap-1 .layout-item-1 .inner {
+  height: 40px;
+  background: #8bc34a;
+  padding: 3px 5px;
+  color: #fff;
+  font-size: 14px;
+}
+.layout-wrap .layout-item-1:nth-child(odd) .inner,
+.layout-wrap-1 .layout-item-1:nth-child(odd) .inner {
+  background: #03a9f4;
+}
+.layout-wrap-1 {
+  height: 120px;
+  border: 1px solid #03a9f4;
 }
 #appWrapper {
   height: 100%;

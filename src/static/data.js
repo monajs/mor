@@ -7,14 +7,14 @@ class Data {
 		base: {
 			name: '基础组件',
 			map: {
-				loading: { name: 'Loading - 加载', url: 'loading', desc: '加载中'  },
+				layout: { name: 'layout - 布局组件', url: 'layout', desc: '24栅格布局以及flex布局' },
 				toast: { name: 'Toast - 提示', url: 'toast', desc: '提示' },
 				modal: { name: 'Modal - 弹框', url: 'modal', desc: '支持自定义弹框以及dialog' },
 				listView: { name: 'ListView - 列表', url: 'list-view', desc: '支持瀑布流以及下拉刷新' },
+				loading: { name: 'Loading - 加载', url: 'loading', desc: '加载中'  },
 				tabs: { name: 'Tabs - 切换面板', url: 'tabs', desc: '支持手势滑动切换' },
 				swiper: { name: 'Swiper - 轮播组件', url: 'swiper', desc: '走马灯，支持自定义wrap' },
 				popup: { name: 'popup - 弹层', url: 'popup', desc: '弹层'},
-				layout: { name: 'layout - 布局组件', url: 'layout', desc: '24栅格布局以及flex布局' },
 				datePicker: { name: 'DatePicker - 时间日期事件选择器', url: 'date-picker' },
 				datePickerRange: { name: 'DatePickerRange - 日期区间选择器', url: 'date-picker-range' },
 				modalSelect: { name: 'ModalSelect - 列表数据选择器', url: 'modal-select' },

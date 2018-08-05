@@ -16,6 +16,7 @@ export default class DatePicker extends Component {
 			this.node.remove()
 		}
 		options.visible = true
+		options.format = options.format || 'second'
 		ReactDOM.render(<DatePicker {...options} />, this.node)
 	}
 	
@@ -28,7 +29,8 @@ export default class DatePicker extends Component {
 	seconds = []
 	
 	componentWillMount () {
-		this.setOptions()
+		const format = this.props.format
+		this.setOptions(format)
 		const { visible } = this.props
 		visible && this.show()
 	}
@@ -37,21 +39,32 @@ export default class DatePicker extends Component {
 		if (nextProps.visible === this.visible) {
 			return
 		}
+		
+		this.options.onConfirm = nextProps.onConfirm
+		this.options.onCancel = nextProps.onCancel
+		
+		if (nextProps.date !== this.options.date) {
+			this.options.date = nextProps.date
+			this.setDefault()
+		}
+		if (nextProps.format !== this.options.format) {
+			this.options.format = nextProps.format
+			this.setOptions(this.options.format, 'update')
+		}
 		if (nextProps.visible === true) {
 			this.show()
 		} else if (nextProps.visible === false) {
 			this.hide()
 		}
-		if (nextProps.date !== this.options.date) {
-			this.options.date = nextProps.date
-			this.setDefault()
-		}
 	}
 	
-	setOptions () {
-		const { format } = this.props
+	setOptions (format, type) {
 		const ctrl = Generate.generateCtrl(format)
-		this.options = Object.assign({}, this.props, ctrl)
+		if (type === 'update') {
+			this.options = Object.assign(this.options, ctrl)
+		} else {
+			this.options = Object.assign({}, this.props, ctrl)
+		}
 		
 		this.years = this.options.years || Generate.years(15)
 		this.months = this.options.months || Generate.months()
