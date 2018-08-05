@@ -9,8 +9,10 @@ import Tool from '../tool'
 
 export default class Popup extends Component {
 	static defaultProps = {
+		isHaveMask: true,
 		maskClosable: true,
-		animate: true
+		animate: true,
+		placement: 'bottom'
 	}
 	
 	componentWillMount () {
@@ -72,18 +74,21 @@ export default class Popup extends Component {
 			visible,
 			placement,
 			maskClosable,
+			isHaveMask,
 			animate,
 			onClose,
 			children,
 			...props
 		} = this.props
 		return (
-			<MountRoor closeDelay={300} onMounted={this.onMounted.bind(this)} visible={this.visible}>
+			<MountRoor closeDelay={animate ? 300 : null} onMounted={this.onMounted.bind(this)} visible={this.visible}>
 				<div className={classNames('mona-popup pos-f pos-f-full', {
 					'have-animate': animate,
 					'show-wrap': this.showWrap
 				}, placement, className)} {...props}>
-					<div className="mona-popup-mask pos-a pos-a-full" onClick={this.tapMask.bind(this)} onTouchMove={this.preventDefault.bind(this)}></div>
+					<If condition={isHaveMask}>
+						<div className="mona-popup-mask pos-a pos-a-full" onClick={this.tapMask.bind(this)} onTouchMove={this.preventDefault.bind(this)}></div>
+					</If>
 					<div className="mona-popup-wrap pos-a">
 						{children}
 					</div>

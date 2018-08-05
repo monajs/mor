@@ -1,34 +1,56 @@
 import React, { Component } from 'react'
 import { Swiper } from 'mona'
+import PageModel from 'components/pageModel'
+import DemoBlock from 'components/demoBlock'
+import Data from 'static/data'
 
 const SwiperItem = Swiper.item
 
 export default class Test extends Component {
-	afterChange (index) {
-		// console.log(index)
-	}
+	data = Data.getComponentItemInfo('swiper')
 	
-	test () {
-		// console.log(123)
+	afterChange (index) {
+		console.log(index)
 	}
 	
 	render () {
 		return (
-			<div>
-				<div className="swiper-pannel w-full">
-					<Swiper afterChange={this.afterChange.bind(this)} dots={true} loop={false}>
-						<SwiperItem>
-							<img onClick={this.test.bind(this)} className="full" src="https://s10.mogucdn.com/mlcdn/c45406/170804_1j6a0f30hcc36k464ikhakj0cbaeg_1350x578.jpg" />
+			<PageModel {...this.data}>
+				<DemoBlock title="基础用法" desc="demo1">
+					<Swiper className="swiper-wrap" afterChange={this.afterChange.bind(this)}>
+						<SwiperItem className="flex-center swiper-item" style={{ background: 'red' }}>第一面板</SwiperItem>
+						<SwiperItem className="flex-center swiper-item" style={{ background: 'blue' }}>第二面板</SwiperItem>
+						<SwiperItem className="flex-center swiper-item" style={{ background: 'green' }}>第三面板</SwiperItem>
+					</Swiper>
+				</DemoBlock>
+				<DemoBlock title="自定义效果" desc="demo2 - 支持循环播放">
+					<Swiper className="swiper-wrap" loop={true}>
+						<SwiperItem className="flex-center swiper-item" style={{ background: 'red' }}>第一面板</SwiperItem>
+						<SwiperItem className="flex-center swiper-item" style={{ background: 'blue' }}>第二面板</SwiperItem>
+						<SwiperItem className="flex-center swiper-item" style={{ background: 'green' }}>第三面板</SwiperItem>
+					</Swiper>
+				</DemoBlock>
+				<DemoBlock title="自定义效果" desc="demo3 - 修改轮播区域宽度">
+					<Swiper className="swiper-wrap" loop={true} childWidth={260}>
+						<SwiperItem className="swiper-item" style={{ padding: '0 10px' }}>
+							<div className="flex-center full" style={{ background: 'red' }}>第一面板</div>
 						</SwiperItem>
-						<SwiperItem>
-							<img className="full" src="https://s10.mogucdn.com/mlcdn/c45406/170804_41l88h92fl116bk0kdl4lklk6d0ia_1350x578.jpg" />
+						<SwiperItem className="swiper-item" style={{ padding: '0 10px' }}>
+							<div className="flex-center full" style={{ background: 'blue' }}>第二面板</div>
 						</SwiperItem>
-						<SwiperItem>
-							<img className="full" src="https://s10.mogucdn.com/mlcdn/c45406/170804_46glh9ch5l7afde25485e5a8k76jf_1350x578.jpg" />
+						<SwiperItem className="swiper-item" style={{ padding: '0 10px' }}>
+							<div className="flex-center full" style={{ background: 'green' }}>第三面板</div>
 						</SwiperItem>
 					</Swiper>
-				</div>
-			</div>
+				</DemoBlock>
+				<DemoBlock title="自定义效果" desc="demo4 - 去除下标小圆点，可以根据场景自己实现">
+					<Swiper className="swiper-wrap" dots={false}>
+						<SwiperItem className="flex-center swiper-item" style={{ background: 'red' }}>第一面板</SwiperItem>
+						<SwiperItem className="flex-center swiper-item" style={{ background: 'blue' }}>第二面板</SwiperItem>
+						<SwiperItem className="flex-center swiper-item" style={{ background: 'green' }}>第三面板</SwiperItem>
+					</Swiper>
+				</DemoBlock>
+			</PageModel>
 		)
 	}
 }
