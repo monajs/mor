@@ -67,16 +67,18 @@ export default class DatePicker extends Component {
 			this.options = Object.assign({}, this.props, ctrl)
 		}
 		
-		this.years = this.options.years || Generate.years(15)
-		this.months = this.options.months || Generate.months()
-		this.hours = this.options.hours || Generate.hours()
-		this.minutes = this.options.minutes || Generate.minutes()
-		this.seconds = this.options.seconds || Generate.seconds()
+		const { yearVisible, monthVisible, hourVisible, minuteVisible, secondVisible } = this.options
+		yearVisible && (this.years = this.options.years || Generate.years(15))
+		monthVisible && (this.months = this.options.months || Generate.months())
+		hourVisible && (this.hours = this.options.hours || Generate.hours())
+		minuteVisible && (this.minutes = this.options.minutes || Generate.minutes())
+		secondVisible && (this.seconds = this.options.seconds || Generate.seconds())
 		
 		this.setDefault()
 	}
 	
 	setDefault () {
+		const { dayVisible } = this.options
 		const date = this.options.date ? new Date(this.options.date) : new Date()
 		this.year = date.getFullYear() + ''
 		this.month = Generate.pad(date.getMonth() + 1, 2)
@@ -85,7 +87,7 @@ export default class DatePicker extends Component {
 		this.minute = Generate.pad(date.getMinutes(), 2)
 		this.second = Generate.pad(date.getSeconds(), 2)
 		
-		this.days = Generate.days(this.year, this.month)
+		dayVisible && (this.days = Generate.days(this.year, this.month))
 	}
 	
 	getValue (type, val) {

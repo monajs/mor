@@ -30,7 +30,7 @@ export default class ModalSelect extends Component {
 	
 	componentWillMount () {
 		const { visible } = this.props
-		this.setOptions()
+		this.setOptions(this.props)
 		visible && this.show()
 	}
 	
@@ -38,6 +38,9 @@ export default class ModalSelect extends Component {
 		if (nextProps.visible === this.visible) {
 			return
 		}
+		this.selectedIndex = -1
+		this.setOptions(nextProps)
+		
 		if (nextProps.visible === true) {
 			this.show()
 		} else if (nextProps.visible === false) {
@@ -46,8 +49,8 @@ export default class ModalSelect extends Component {
 	}
 	
 	// 初始化数据处理
-	setOptions () {
-		const { source, isKv, valueKey, defaultValue } = this.props
+	setOptions (props) {
+		const { source, isKv, valueKey, defaultValue } = props
 		source.forEach((item, index) => {
 			if (isKv) {
 				if (typeof defaultValue === 'object') {
@@ -112,7 +115,6 @@ export default class ModalSelect extends Component {
 								{isKv ? item[nameKey] : item}
 							</div>
 						</For>
-					
 					</div>
 				</div>
 			</Popup>

@@ -11,13 +11,13 @@ class Data {
 				toast: { name: 'Toast - 提示', url: 'toast', desc: '提示' },
 				modal: { name: 'Modal - 弹框', url: 'modal', desc: '支持自定义弹框以及dialog' },
 				listView: { name: 'ListView - 列表', url: 'list-view', desc: '支持瀑布流以及下拉刷新' },
-				loading: { name: 'Loading - 加载', url: 'loading', desc: '加载中'  },
+				loading: { name: 'Loading - 加载', url: 'loading', desc: '加载中' },
 				tabs: { name: 'Tabs - 切换面板', url: 'tabs', desc: '支持手势滑动切换' },
 				swiper: { name: 'Swiper - 轮播组件', url: 'swiper', desc: '走马灯，支持自定义wrap' },
-				popup: { name: 'popup - 弹层', url: 'popup', desc: '弹层'},
-				datePicker: { name: 'DatePicker - 时间日期事件选择器', url: 'date-picker' },
-				datePickerRange: { name: 'DatePickerRange - 日期区间选择器', url: 'date-picker-range' },
-				modalSelect: { name: 'ModalSelect - 列表数据选择器', url: 'modal-select' },
+				popup: { name: 'popup - 弹层', url: 'popup', desc: '弹层' },
+				datePicker: { name: 'DatePicker - 时间日期事件选择器', url: 'date-picker', desc: '自定义时间精度' },
+				datePickerRange: { name: 'DatePickerRange - 日期区间选择器', url: 'date-picker-range', desc: '自定义时间精度' },
+				modalSelect: { name: 'ModalSelect - 列表数据选择器', url: 'modal-select', desc: '列表数据选择器' },
 				pickerSelect: { name: 'PickerSelect - 列表数据滚动选择器', url: 'picker-select' }
 			}
 		},

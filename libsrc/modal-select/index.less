@@ -19,13 +19,16 @@
 		color: @modalSelectItemColor;
 		line-height: 1;
 		&.selected {
+			opacity: 0.8;
+			color: #fff;
 			background-color: @modalSelectItemSelectedBg;
 			&:after {
 				content: '';
 				display: block;
-				background: url(@modalSelectItemSelectedIcon) center no-repeat;
-				width: 16px;
-				height: 12px;
+				background: #fff;
+				width: 8px;
+				border-radius: 50%;
+				height: 8px;
 				position: absolute;
 				top: 50%;
 				transform: translateY(-50%);

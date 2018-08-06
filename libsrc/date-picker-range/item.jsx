@@ -25,8 +25,10 @@ export default class DatePickerRangeItem extends Component {
 		const ctrl = Generate.generateCtrl(format)
 		this.options = Object.assign({}, this.props, ctrl)
 		
-		this.years = this.options.years || Generate.years(15)
-		this.months = this.options.months || Generate.months()
+		const { yearVisible, monthVisible } = this.options
+		
+		yearVisible && (this.years = this.options.years || Generate.years(15))
+		monthVisible && (this.months = this.options.months || Generate.months())
 		
 		this.setDefault()
 	}
@@ -38,7 +40,8 @@ export default class DatePickerRangeItem extends Component {
 		this.month = Generate.pad(date.getMonth() + 1, 2)
 		this.day = Generate.pad(date.getDate(), 2)
 		
-		this.days = Generate.days(this.year, this.month)
+		const { dayVisible } = this.options
+		dayVisible && (this.days = Generate.days(this.year, this.month))
 	}
 	
 	_getValue (type, val) {
