@@ -64,7 +64,7 @@ export default class DatePickerRangeItem extends Component {
 	render () {
 		const { yearVisible, monthVisible, dayVisible, className } = this.options
 		return (
-			<div className={classNames('mona-date-picker-range-item d-f', className)}>
+			<div className={classNames('mona-date-picker-range-item flex-center', className)}>
 				<If condition={yearVisible}>
 					<div className="mona-date-picker-range-year h-full">
 						<PickerView source={this.years} defaultValue={this.year} onChange={this._getValue.bind(this, 'year')} />

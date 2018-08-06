@@ -1,5 +1,6 @@
 /**
- *    created by yangxi on 2018-07-27
+ *    created by yangxi
+ *    时间选择器
  */
 
 import React, { Component } from 'react'

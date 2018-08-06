@@ -9,11 +9,11 @@
 		}
 	}
 	.mona-date-picker-range-wrap {
-		padding: 0 10px;
 		height: @datePickerRangeWrapHeight;
 		font-size: @datePickerRangeWrapFontSize;
 	}
 	.mona-date-picker-range-item {
+		padding: 0 10px;
 		.mona-date-picker-range-year {
 			width: 60px;
 		}
@@ -22,5 +22,14 @@
 		width: 10px;
 		border-left: 1px solid @datePickerRangeWrapGapBorderColor;
 		border-right: 1px solid @datePickerRangeWrapGapBorderColor;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	//5s
+	.mona-date-picker-range {
+		.mona-date-picker-range-item {
+			padding: 0 5px;
+		}
 	}
 }

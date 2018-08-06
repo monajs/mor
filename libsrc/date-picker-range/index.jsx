@@ -1,5 +1,6 @@
 /**
- *    created by yangxi on 2018-07-30
+ *    created by yangxi
+ *    时间选择器
  */
 
 import React, { Component } from 'react'
@@ -16,6 +17,7 @@ export default class DatePickerRange extends Component {
 			this.node.remove()
 		}
 		options.visible = true
+		options.format = options.format || 'day'
 		ReactDOM.render(<DatePickerRange {...options} />, this.node)
 	}
 	
@@ -23,7 +25,8 @@ export default class DatePickerRange extends Component {
 	options = {}	// 配置集合
 	
 	componentWillMount () {
-		this.setOptions()
+		const format = this.props.format
+		this.setOptions(format)
 		const { visible } = this.props
 		visible && this.show()
 	}
@@ -32,20 +35,31 @@ export default class DatePickerRange extends Component {
 		if (nextProps.visible === this.visible) {
 			return
 		}
+		
+		this.options.onConfirm = nextProps.onConfirm
+		this.options.onCancel = nextProps.onCancel
+		
+		if (nextProps.date !== this.options.date) {
+			this.options.date = nextProps.date
+		}
+		if (nextProps.format !== this.options.format) {
+			this.options.format = nextProps.format
+			this.setOptions(this.options.format, 'update')
+		}
 		if (nextProps.visible === true) {
 			this.show()
 		} else if (nextProps.visible === false) {
 			this.hide()
 		}
-		if (nextProps.date !== this.options.date) {
-			this.options.date = nextProps.date
-		}
 	}
 	
-	setOptions () {
-		const { format } = this.props
+	setOptions (format, type) {
 		const ctrl = Generate.generateCtrl(format)
-		this.options = Object.assign({}, this.props, ctrl)
+		if (type === 'update') {
+			this.options = Object.assign(this.options, ctrl)
+		} else {
+			this.options = Object.assign({}, this.props, ctrl)
+		}
 		
 		this.options.years = this.options.years || Generate.years(15)
 		this.options.months = this.options.months || Generate.months()

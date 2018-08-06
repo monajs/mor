@@ -29,13 +29,10 @@ export default class Test extends Component {
 				</DemoBlock>
 				<DemoBlock title="基础用法" desc="demo2 - 列元素之间增加间隙">
 					<Row className="layout-wrap" gutter={10}>
-						<Col className="layout-item-1" span={8}>
+						<Col className="layout-item-1" span={12}>
 							<div className="inner">gutter: 10px</div>
 						</Col>
-						<Col className="layout-item-1" span={8}>
-							<div className="inner">gutter: 10px</div>
-						</Col>
-						<Col className="layout-item-1" span={8}>
+						<Col className="layout-item-1" span={12}>
 							<div className="inner">gutter: 10px</div>
 						</Col>
 					</Row>
