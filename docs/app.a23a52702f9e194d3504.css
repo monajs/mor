@@ -779,6 +779,8 @@
   font-size: 15px;
   padding: 0 40px 0 20px;
   color: #333;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
   line-height: 1;
 }
 .mona-modal-select .mona-modal-select-item.selected {
@@ -1571,6 +1573,10 @@ pre {
 .layout-wrap-1 {
   height: 120px;
   border: 1px solid #03a9f4;
+}
+.hammer-wrap {
+  height: 150px;
+  border: 1px solid #2196F3;
 }
 #appWrapper {
   height: 100%;
