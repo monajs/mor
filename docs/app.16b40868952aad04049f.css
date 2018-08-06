@@ -782,14 +782,17 @@
   line-height: 1;
 }
 .mona-modal-select .mona-modal-select-item.selected {
-  background-color: #ffeeed;
+  opacity: 0.8;
+  color: #fff;
+  background-color: #2196F3;
 }
 .mona-modal-select .mona-modal-select-item.selected:after {
   content: '';
   display: block;
-  background: url('https://s10.mogucdn.com/mlcdn/c45406/180531_1446j5l280i4cl48h6abh954e6g9l_31x23.png') center no-repeat;
-  width: 16px;
-  height: 12px;
+  background: #fff;
+  width: 8px;
+  border-radius: 50%;
+  height: 8px;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -833,9 +836,11 @@
   color: #2196F3;
 }
 .mona-date-picker-range .mona-date-picker-range-wrap {
-  padding: 0 10px;
   height: 280px;
   font-size: 14px;
+}
+.mona-date-picker-range .mona-date-picker-range-item {
+  padding: 0 10px;
 }
 .mona-date-picker-range .mona-date-picker-range-item .mona-date-picker-range-year {
   width: 60px;
@@ -844,6 +849,11 @@
   width: 10px;
   border-left: 1px solid #e4e4e4;
   border-right: 1px solid #e4e4e4;
+}
+@media screen and (max-width: 320px) {
+  .mona-date-picker-range .mona-date-picker-range-item {
+    padding: 0 5px;
+  }
 }
 .mona-list-view .mona-list-view-section.mona-list-view-transition {
   -webkit-transition: -webkit-transform 600ms ease-in-out;
