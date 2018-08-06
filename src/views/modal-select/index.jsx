@@ -26,7 +26,7 @@ export default class Test extends Component {
 			nameKey: 'n', // 默认 name
 			valueKey: 'v', // 默认 value
 			onConfirm: (data) => {
-				this.demo1Value = data
+				this.demo1Value = data.v
 				this.setState({})
 			}
 		})

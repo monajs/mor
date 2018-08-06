@@ -17,8 +17,8 @@ class Data {
 				popup: { name: 'popup - 弹层', url: 'popup', desc: '弹层' },
 				datePicker: { name: 'DatePicker - 时间日期事件选择器', url: 'date-picker', desc: '自定义时间精度' },
 				datePickerRange: { name: 'DatePickerRange - 日期区间选择器', url: 'date-picker-range', desc: '自定义时间精度' },
-				modalSelect: { name: 'ModalSelect - 列表数据选择器', url: 'modal-select', desc: '列表数据选择器' },
-				pickerSelect: { name: 'PickerSelect - 列表数据滚动选择器', url: 'picker-select' }
+				modalSelect: { name: 'ModalSelect - 列表数据选择器', url: 'modal-select', desc: '点击选择器' },
+				pickerSelect: { name: 'PickerSelect - 列表数据选择器', url: 'picker-select', desc: '滚动选择器' }
 			}
 		},
 		other: {
