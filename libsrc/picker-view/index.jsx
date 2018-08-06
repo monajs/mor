@@ -164,12 +164,15 @@ export default class PickerView extends Component {
 		const {
 			className,
 			isKv,
+			source,
 			valueKey,
+			value,
 			nameKey,
-			cellHeight
+			cellHeight,
+			...props
 		} = this.props
 		return (
-			<div className={classNames('mona-picker-view mona-form-control', className)}>
+			<div className={classNames('mona-picker-view mona-form-control', className)} {...props}>
 				<div className="h-full flex-center">
 					<div className="mona-picker-view-wrap" ref="wrap" style={{ height: `${cellHeight}px` }}>
 						<Choose>

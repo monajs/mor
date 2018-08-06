@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
 import { PickerView } from 'mona'
+import PageModel from 'components/pageModel'
+import DemoBlock from 'components/demoBlock'
+import Data from 'static/data'
 
 export default class Test extends Component {
-	// 测试
-	year = '2018年'
+	data = Data.getComponentItemInfo('pickerView')
 	
-	getValue (val) {
-		console.log(val)
+	value = '2018年'
+	
+	getValue (value) {
+		this.value = value
+		this.setState({})
 	}
 	
 	source = []
@@ -19,9 +24,12 @@ export default class Test extends Component {
 	
 	render () {
 		return (
-			<div className="full">
-				<PickerView source={this.source} isKv={false} defaultValue={this.year} onChange={this.getValue.bind(this)} />
-			</div>
+			<PageModel {...this.data}>
+				<DemoBlock title="基础用法" desc="demo">
+					<div className="show">选取： {this.value}</div>
+					<PickerView style={{ height: 'calc(100vh - 210px)' }} source={this.source} isKv={false} defaultValue={this.value} onChange={this.getValue.bind(this)} />
+				</DemoBlock>
+			</PageModel>
 		)
 	}
 }
