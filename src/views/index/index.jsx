@@ -7,7 +7,7 @@ const DropContent = Drop.content
 
 export default class Home extends Component {
 	open (isOpen, index) {
-		console.log(isOpen, index)
+		// console.log(isOpen, index)
 	}
 	
 	data = Data.getIndexData()
@@ -22,7 +22,7 @@ export default class Home extends Component {
 				<h1 className="page-title flex-center">Mor</h1>
 				<div className="page-desc text-center">让你感到幸福的 React 组件库</div>
 				<For of={this.data || []} each="item" index="index">
-					<Drop isOpen={true} className="component-item" onChange={this.open.bind(this, index)} key={index}>
+					<Drop className="component-item" onChange={this.open.bind(this, index)} key={index}>
 						<DropTitle className="header flex-center-y">{item.name}</DropTitle>
 						<DropContent className="content">
 							<For of={item.list} each="child" index="childIndex">
