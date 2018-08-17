@@ -18,7 +18,7 @@ export default class Test extends Component {
 				this.setState({})
 			},
 			onCancel: type => {
-				Util.info(type)
+                console.log(type)
 			}
 		})
 	}

@@ -10,20 +10,14 @@ export default class Test extends Component {
 	data = Data.getComponentItemInfo('datePickerRange')
 	
 	demo1 () {
-		let start = Util.moment(this.demo1Start).valueOf()
-		let end = Util.moment(this.demo1End).valueOf()
 		DatePickerRange.config({
-			date: {
-				start,
-				end
-			},
 			onConfirm: (data) => {
 				this.demo1Start = Util.moment(data.start).format('YYYY-MM-DD')
 				this.demo1End = Util.moment(data.end).format('YYYY-MM-DD')
 				this.setState({})
 			},
 			onCancel: type => {
-				Util.info(type)
+				console.log(type)
 			}
 		})
 	}

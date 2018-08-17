@@ -20,9 +20,8 @@
 		transition: all 0.15s ease-in-out;
 		line-height: 1;
 		&.selected {
-			opacity: 0.8;
 			color: #fff;
-			background-color: @modalSelectItemSelectedBg;
+			background-color: fade(@modalSelectItemSelectedBg, 80%);
 			&:after {
 				content: '';
 				display: block;
