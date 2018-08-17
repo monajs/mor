@@ -12,9 +12,7 @@ export default class Test extends Component {
 	demo2Value = '2019-01-02 00:00:00'
 	
 	demo1 () {
-		let defaultDate = Util.moment(this.demo1Value).valueOf()
 		DatePicker.config({
-			date: defaultDate,
 			onConfirm: (data) => {
 				this.demo1Value = Util.moment(data).format('YYYY-MM-DD HH:mm:ss')
 				this.setState({})

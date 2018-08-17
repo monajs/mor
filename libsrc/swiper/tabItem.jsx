@@ -6,7 +6,6 @@ export default class SwiperTabItem extends Component {
 	componentWillMount () {
 		const { ctrl } = this.props
 		this.key = KeyGenerate.getMonaKey()
-		console.log(`设置tabsItem的唯一key - ${this.key}`)
 		ctrl.setTabItemKey(this.key)
 		ctrl.on('tabsIndexChange', (keysList) => {
 			if (this.isShow) {

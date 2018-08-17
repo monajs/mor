@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { ListView } from 'mona'
 import PageModel from 'components/pageModel'
 import DemoBlock from 'components/demoBlock'
-import DemoButton from 'components/demoButton'
 import Data from 'static/data'
 
 export default class Test extends Component {
