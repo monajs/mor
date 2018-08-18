@@ -34,7 +34,7 @@ export default class Test extends Component {
 						<TabItem className="flex-center">第三面板</TabItem>
 					</Tabs>
 				</DemoBlock>
-				<DemoBlock title="基础用法" desc="demo2 - 调用api切换面板,初始化在第二面板">
+				<DemoBlock title="调用api切换面板,初始化在第二面板" desc="demo2">
 					<Tabs style={{ height: 200 }} ref="tabs" defaultIndex={1} tabs={this.tabs} afterChange={this.afterChange.bind(this)} className="tabs-pannel">
 						<TabItem className="flex-center">
 							<DemoButton onClick={this.tab.bind(this, 1)}>切换wrap to 1</DemoButton>
@@ -48,21 +48,21 @@ export default class Test extends Component {
 						</TabItem>
 					</Tabs>
 				</DemoBlock>
-				<DemoBlock title="基础用法" desc="demo3 - 禁用手势">
+				<DemoBlock title="禁用手势" desc="demo3">
 					<Tabs style={{ height: 200 }} enableTouch={false} tabs={this.tabs} afterChange={this.afterChange.bind(this)} className="tabs-pannel">
 						<TabItem className="flex-center">第一面板</TabItem>
 						<TabItem className="flex-center">第二面板</TabItem>
 						<TabItem className="flex-center">第三面板</TabItem>
 					</Tabs>
 				</DemoBlock>
-				<DemoBlock title="基础用法" desc="demo4 - 禁用弹性阻尼效果(左滑到底，右滑到底)">
+				<DemoBlock title="禁用弹性阻尼效果" desc="demo4 - 左滑到底或者右滑到底之后无回弹动画">
 					<Tabs style={{ height: 200 }} enableDamp={false} tabs={this.tabs} afterChange={this.afterChange.bind(this)} className="tabs-pannel">
 						<TabItem className="flex-center">第一面板</TabItem>
 						<TabItem className="flex-center">第二面板</TabItem>
 						<TabItem className="flex-center">第三面板</TabItem>
 					</Tabs>
 				</DemoBlock>
-				<DemoBlock title="基础用法" desc="demo5 - 取消默认头部，可根据需求自定义头部导航">
+				<DemoBlock title="取消默认头部" desc="demo5 - 可根据需求自定义头部导航">
 					<Tabs style={{ height: 200 }} tabs={false} afterChange={this.afterChange.bind(this)} className="tabs-pannel">
 						<TabItem className="flex-center">第一面板</TabItem>
 						<TabItem className="flex-center">第二面板</TabItem>

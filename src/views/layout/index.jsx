@@ -10,7 +10,7 @@ export default class Test extends Component {
 	render () {
 		return (
 			<PageModel {...this.data}>
-				<DemoBlock title="基础用法" desc="demo1 - 24栅格布局">
+				<DemoBlock title="24栅格布局" desc="demo1">
 					<Row className="layout-wrap">
 						<Col className="layout-item" span={12}>span: 12</Col>
 						<Col className="layout-item" span={12}>span: 12</Col>
@@ -27,7 +27,7 @@ export default class Test extends Component {
 						<Col className="layout-item" span={6}>span: 6</Col>
 					</Row>
 				</DemoBlock>
-				<DemoBlock title="基础用法" desc="demo2 - 列元素之间增加间隙">
+				<DemoBlock title="列元素之间增加间隙" desc="demo2">
 					<Row className="layout-wrap" gutter={10}>
 						<Col className="layout-item-1" span={12}>
 							<div className="inner">gutter: 10px</div>
@@ -37,13 +37,13 @@ export default class Test extends Component {
 						</Col>
 					</Row>
 				</DemoBlock>
-				<DemoBlock title="基础用法" desc="demo3 - flex布局，水平垂直居中">
+				<DemoBlock title="flex布局，水平垂直居中" desc="demo3">
 					<Row className="layout-wrap-1" align="center" justify="center">
 						<Col className="layout-item" span={6}>span: 6</Col>
 						<Col className="layout-item" span={6}>span: 6</Col>
 					</Row>
 				</DemoBlock>
-				<DemoBlock title="基础用法" desc="demo4 - flex布局，垂直布局">
+				<DemoBlock title="flex布局，垂直布局" desc="demo4">
 					<Row className="layout-wrap-1" gutter={10} direction="column" align="center" justify="center">
 						<Col className="layout-item" span={6}>span: 6</Col>
 						<Col className="layout-item m-t-10" span={6}>span: 6</Col>

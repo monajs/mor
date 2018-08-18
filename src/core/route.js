@@ -86,7 +86,7 @@ class Route extends Events.EventEmitter {
 	}
 	
 	go (path, data) {
-		location.href = '#' + path + (data ? '?' + Url.param(data) : '')
+		location.hash = '#' + path + (data ? '?' + Url.param(data) : '')
 	}
 }
 

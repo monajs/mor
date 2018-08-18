@@ -72,23 +72,23 @@ export default class Test extends Component {
 		return (
 			<div className="full">
 				<PageModel {...this.data}>
-					<DemoBlock title="基础用法" desc={<pre>节点插入方式<br />demo1 - 提供onConfirm和onCancel两个确认和取消时的钩子函数</pre>}>
+					<DemoBlock title="节点插入方式" desc={<pre>demo1 - 提供onConfirm和onCancel两个确认和取消时的钩子函数</pre>}>
 						<DemoButton className="w-full" onClick={this.demo1.bind(this)}>打开</DemoButton>
 					</DemoBlock>
-					<DemoBlock title="自定义用法" desc="demo2 - 自定义title模版">
+					<DemoBlock title="自定义title模版" desc="demo2">
 						<DemoButton className="w-full" onClick={this.demo2.bind(this)}>打开</DemoButton>
 					</DemoBlock>
-					<DemoBlock title="自定义用法" desc="demo3 - 自定义确认和取消文案、无title">
+					<DemoBlock title="自定义确认和取消文案、无title" desc="demo3">
 						<DemoButton className="w-full" onClick={this.demo3.bind(this)}>打开</DemoButton>
 					</DemoBlock>
-					<DemoBlock title="自定义用法" desc="demo4 - 无底部，可以根据需求自定义底部">
+					<DemoBlock title="无底部，可以根据需求自定义底部" desc="demo4">
 						<DemoButton className="w-full" onClick={this.demo4.bind(this)}>打开</DemoButton>
 					</DemoBlock>
-					<DemoBlock title="自定义用法" desc="demo5 - 无取消按钮">
+					<DemoBlock title="无取消按钮" desc="demo5">
 						<DemoButton className="w-full" onClick={this.demo5.bind(this)}>打开</DemoButton>
 					</DemoBlock>
-					<DemoBlock title="基础用法(dialog)" desc={
-						<pre>api调用方式 Modal.confirm(options)<br />所有参数和'节点插入方式'提供的一致</pre>}>
+					<DemoBlock title="api调用方式(dialog)" desc={
+						<pre>Modal.confirm(options)<br />所有参数和'节点插入方式'提供的一致</pre>}>
 						<DemoButton className="w-full" onClick={this.open.bind(this)}>打开</DemoButton>
 					</DemoBlock>
 				</PageModel>

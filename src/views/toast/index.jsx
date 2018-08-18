@@ -43,13 +43,13 @@ export default class Test extends Component {
 				<DemoBlock title="基础用法" desc='demo1'>
 					<DemoButton className="w-full" onClick={this.demo1.bind(this)}>打开</DemoButton>
 				</DemoBlock>
-				<DemoBlock title="自定义信息" desc='demo2 - 成功提示'>
+				<DemoBlock title="成功提示" desc='demo2'>
 					<DemoButton className="w-full" onClick={this.demo2.bind(this)}>打开</DemoButton>
 				</DemoBlock>
-				<DemoBlock title="自定义信息" desc='demo3 - 失败提示'>
+				<DemoBlock title="失败提示" desc='demo3'>
 					<DemoButton className="w-full" onClick={this.demo3.bind(this)}>打开</DemoButton>
 				</DemoBlock>
-				<DemoBlock title="自定义信息" desc='demo4 - 展示3s，默认展示2s'>
+				<DemoBlock title="展示3s" desc='demo4 - 默认展示2s'>
 					<DemoButton className="w-full" onClick={this.demo4.bind(this)}>打开</DemoButton>
 				</DemoBlock>
 			</PageModel>

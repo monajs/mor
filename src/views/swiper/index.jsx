@@ -23,14 +23,14 @@ export default class Test extends Component {
 						<SwiperItem className="flex-center swiper-item" style={{ background: '#ff9800' }}>第三面板</SwiperItem>
 					</Swiper>
 				</DemoBlock>
-				<DemoBlock title="自定义效果" desc="demo2 - 支持循环播放">
+				<DemoBlock title="循环播放" desc="demo2">
 					<Swiper className="swiper-wrap" loop={true}>
 						<SwiperItem className="flex-center swiper-item" style={{ background: '#8bc34a' }}>第一面板</SwiperItem>
 						<SwiperItem className="flex-center swiper-item" style={{ background: '#03a9f4' }}>第二面板</SwiperItem>
 						<SwiperItem className="flex-center swiper-item" style={{ background: '#ff9800' }}>第三面板</SwiperItem>
 					</Swiper>
 				</DemoBlock>
-				<DemoBlock title="自定义效果" desc="demo3 - 修改轮播区域宽度">
+				<DemoBlock title="修改轮播区域宽度" desc="demo3">
 					<Swiper className="swiper-wrap" loop={true} childWidth={260}>
 						<SwiperItem className="swiper-item" style={{ padding: '0 10px' }}>
 							<div className="flex-center full" style={{ background: '#8bc34a' }}>第一面板</div>
@@ -43,7 +43,7 @@ export default class Test extends Component {
 						</SwiperItem>
 					</Swiper>
 				</DemoBlock>
-				<DemoBlock title="自定义效果" desc="demo4 - 去除下标小圆点，可以根据场景自己实现">
+				<DemoBlock title="去除下标小圆点" desc="demo4 - 可以根据场景自己实现">
 					<Swiper className="swiper-wrap" dots={false}>
 						<SwiperItem className="flex-center swiper-item" style={{ background: '#8bc34a' }}>第一面板</SwiperItem>
 						<SwiperItem className="flex-center swiper-item" style={{ background: '#03a9f4' }}>第二面板</SwiperItem>

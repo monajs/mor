@@ -57,25 +57,25 @@ export default class Test extends Component {
 	render () {
 		return (
 			<PageModel {...this.data}>
-				<DemoBlock title="基础用法" desc="demo1 - 底部弹出">
+				<DemoBlock title="底部弹出" desc="demo1 - 默认">
 					<DemoButton className="w-full" onClick={this.demo1.bind(this)}>打开</DemoButton>
 				</DemoBlock>
-				<DemoBlock title="基础用法" desc="demo2 - 顶部弹出">
+				<DemoBlock title="顶部弹出" desc="demo2">
 					<DemoButton className="w-full" onClick={this.demo2.bind(this)}>打开</DemoButton>
 				</DemoBlock>
-				<DemoBlock title="基础用法" desc="demo3 - 右侧弹出">
+				<DemoBlock title="右侧弹出" desc="demo3">
 					<DemoButton className="w-full" onClick={this.demo3.bind(this)}>打开</DemoButton>
 				</DemoBlock>
-				<DemoBlock title="基础用法" desc="demo4 - 左侧弹出">
+				<DemoBlock title="左侧弹出" desc="demo4">
 					<DemoButton className="w-full" onClick={this.demo4.bind(this)}>打开</DemoButton>
 				</DemoBlock>
-				<DemoBlock title="自定义用法" desc="demo5 - 无动画效果">
+				<DemoBlock title="无动画效果" desc="demo5">
 					<DemoButton className="w-full" onClick={this.demo5.bind(this)}>打开</DemoButton>
 				</DemoBlock>
-				<DemoBlock title="自定义用法" desc="demo6 - 蒙层禁止点击关闭">
+				<DemoBlock title="蒙层禁止点击关闭" desc="demo6">
 					<DemoButton className="w-full" onClick={this.demo6.bind(this)}>打开</DemoButton>
 				</DemoBlock>
-				<DemoBlock title="自定义用法" desc="demo7 - 无蒙层背景">
+				<DemoBlock title="无蒙层背景" desc="demo7">
 					<DemoButton className="w-full" onClick={this.demo7.bind(this)}>打开</DemoButton>
 				</DemoBlock>
 				<Popup visible={this.demo1Visible} placement="bottom" onClose={this.hide.bind(this)}>

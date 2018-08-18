@@ -90,7 +90,7 @@ export default class Test extends Component {
 				<DemoBlock title="基础用法" desc="demo1">
 					<DemoButton className="w-full" onClick={this.demo1.bind(this)}>打开 {this.demo1Value}</DemoButton>
 				</DemoBlock>
-				<DemoBlock title="基础用法" desc="demo2 - 默认选中第二项">
+				<DemoBlock title="默认选中第二项" desc="demo2">
 					<DemoButton className="w-full" onClick={this.demo2.bind(this)}>打开 {this.demo2Value}</DemoButton>
 				</DemoBlock>
 			</PageModel>

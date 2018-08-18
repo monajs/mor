@@ -102,10 +102,10 @@ export default class Test extends Component {
 				<DemoBlock title="基础用法" desc="demo1 - 默认">
 					<DemoButton className="w-full" onClick={this.demo1.bind(this)}>选择时间 {this.demo1Start}至{this.demo1End}</DemoButton>
 				</DemoBlock>
-				<DemoBlock title="自定义用法" desc="demo2 - 初始化时间设定">
+				<DemoBlock title="初始化时间设定" desc="demo2">
 					<DemoButton className="w-full" onClick={this.demo2.bind(this)}>选择时间 {this.demo2Start}至{this.demo2End}</DemoButton>
 				</DemoBlock>
-				<DemoBlock title="自定义用法" desc="demo3 - 指定时间格式">
+				<DemoBlock title="指定时间格式" desc="demo3">
 					<DemoButton className="w-full" onClick={this.demo3Year.bind(this)}>获取到月年 {this.demo3YearStart}至{this.demo3YearEnd}</DemoButton>
 					<DemoButton className="w-full m-t-10" onClick={this.demo3Month.bind(this)}>获取到月 {this.demo3MonthStart}至{this.demo3MonthEnd}</DemoButton>
 				</DemoBlock>

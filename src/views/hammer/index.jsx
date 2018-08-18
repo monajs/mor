@@ -22,7 +22,7 @@ export default class Test extends Component {
 	render () {
 		return (
 			<PageModel {...this.data}>
-				<DemoBlock title="基础用法" desc={<pre>在原有的 event 数据基础之上，添加了触点的<b>速度</b>、<b>角度</b>、<b>偏移量</b></pre>}>
+				<DemoBlock title="在原有的 event 数据基础之上，添加了触点的速度、角度、偏移量">
 					<div>X轴速度：{this.panInfo.velocityX || 0}</div>
 					<div>Y轴速度：{this.panInfo.velocityY || 0}</div>
 					<div>角度：{this.panInfo.angle || 0}</div>
@@ -36,7 +36,7 @@ export default class Test extends Component {
 						</Hammer>
 					</div>
 				</DemoBlock>
-				<DemoBlock title="基础用法" desc="长按事件">
+				<DemoBlock title="长按事件">
 					<div className="hammer-wrap m-t-10">
 						<Hammer
 							press={this.press.bind(this)}
