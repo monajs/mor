@@ -37,7 +37,7 @@ npm i mor-mobile --save
 npm i babel-plugin-import -dev
 ```
 
-```
+```js
 .babelrc or babel-loader option
 {
   "plugins": [
@@ -71,7 +71,7 @@ resolve: {
 ...
 ```
 
-```
+```js
 .babelrc or babel-loader option
 {
   "plugins": [
