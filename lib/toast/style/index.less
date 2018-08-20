@@ -1,0 +1,34 @@
+@import "../../style/common";
+
+.mona-toast {
+    z-index: @toastZIndex;
+    .mona-toast-content {
+        border-radius: @toastBorderRadius;
+        padding: 12px 15px;
+        background: @toastBgColor;
+        text-align: center;
+        font-size: @toastFontSize;
+        z-index: @toastConZIndex;
+        color: @toastColor;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        &.success, &.error {
+            min-width: 120px; /*no2rem*/
+        }
+    }
+    .mona-toast-icon {
+        .success-img, .error-img {
+            width: @toastIconWidth;
+            height: @toastIconHeight;
+            background-size: cover;
+            margin: 3px auto 10px;
+        }
+        .success-img {
+            background-image: url(@toastSuccessIcon);
+        }
+        .error-img {
+            background-image: url(@toastErrorIcon);
+        }
+    }
+}

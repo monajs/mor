@@ -1,0 +1,26 @@
+@import "../../style/common";
+
+.mona-tabs-header {
+    border-bottom: 1px solid @tabsHeaderBorderColor;
+    background-color: @tabsHeaderBgColor;
+    .item {
+        border-bottom: 2px solid transparent;
+        font-size: @tabsHeaderFontSize;
+        height: @tabsHeaderHeight;
+        &.active {
+            color: @tabsHeaderSelectedColor;
+        }
+    }
+    .index-mark {
+        &:before {
+            display: block;
+            content: '';
+            height: @tabsHeaderSelectedHeight;
+            background-color: @tabsHeaderSelectedColor;
+        }
+        bottom: 0;
+        left: 0;
+        transition: transform @tabsAnimDuration ease-out;
+        padding: 0 20px;
+    }
+}

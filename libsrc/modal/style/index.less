@@ -1,0 +1,85 @@
+@import "../../style/common";
+
+.mona-modal {
+    z-index: @modalZIndex;
+    .mona-modal-mask {
+        background: @modalMaskBg;
+    }
+    .mona-modal-wrap {
+        border-radius: @modalWrapBorderRadius;
+        padding: 15px 0 0 0;
+        text-align: center;
+        width: @modalWrapWidth;
+        margin-top: -100px;
+        background-color: @modalWrapBgColor;
+        overflow: hidden;
+    }
+    .mona-modal-header {
+        padding: 0 20px;
+        font-size: @modalHeaderFontSize;
+        color: @modalHeaderColor;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .mona-modal-body {
+        padding: 0 20px 15px;
+        font-size: @modalWrapFontSize;
+        line-height: 1.33;
+        color: @modalWrapColor;
+        //border-bottom: 1px solid @modalWrapBorderColor;
+        &.no-title {
+            color: @modalWrapNoTitle;
+            padding-top: 10px;
+        }
+    }
+    .mona-modal-footer {
+        height: @modalFooterHeight;
+        font-size: @modalFooterFontSize;
+        .cancel {
+            color: #666;
+            //border-right: 1px solid @border-color;
+        }
+        .confirm {
+            color: @mona-primary;
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    //5s
+    .mona-modal {
+        .mona-modal-wrap {
+            width: @modalWrapWidthSm;
+        }
+        .mona-modal-header {
+            font-size: @modalHeaderFontSizeSm;
+        }
+        .mona-modal-body {
+            font-size: @modalWrapFontSizeSm;
+        }
+        .mona-modal-footer {
+            height: @modalFooterHeightSm;
+            font-size: @modalFooterFontSizeSm;
+        }
+    }
+}
+
+@media screen and (min-width: 414px) {
+    //6p
+    .mona-modal {
+        .mona-modal-wrap {
+            width: @modalWrapWidthLg;
+        }
+        .mona-modal-body {
+            padding: 0 20px 18px;
+            font-size: @modalWrapFontSizeLg;
+            &.no-title {
+                padding-top: 15px;
+            }
+        }
+        .mona-modal-footer {
+            height: @modalFooterHeightLg;
+            font-size: @modalFooterFontSizeLg;
+        }
+    }
+}

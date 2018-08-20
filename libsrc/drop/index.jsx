@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { findDOMNode } from 'react-dom'
 import classNames from 'classnames'
 import DropTitle from './title'
 import DropContent from './content'
 import DropCtrl from './ctrl'
-import './index.less'
 
 export default class Drop extends Component {
 	constructor (props) {
