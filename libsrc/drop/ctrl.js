@@ -1,3 +1,3 @@
-import Events from '../events'
+import Events from 'mona-events'
 
 export default class DropEvents extends Events {}

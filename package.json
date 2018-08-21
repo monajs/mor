@@ -61,6 +61,7 @@
         "uglifyjs-webpack-plugin": "^0.4.6"
     },
     "dependencies": {
-        "classnames": "2.2.5"
+        "classnames": "2.2.5",
+        "mona-events": "0.0.5"
     }
 }
