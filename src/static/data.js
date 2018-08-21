@@ -26,7 +26,7 @@ class Data {
 			map: {
 				hammer: { name: 'Hammer - 手势库', url: 'hammer', desc: '迷你手势库' },
 				pickerView: { name: 'PickerView - 滚动面板', url: 'picker-view' },
-				events: { name: 'Events - 事件类', url: 'events', desc: '监听者模式' }
+                scrollWatcher: { name: 'ScrollWatcher - 滚动监听器', url: 'scroll-watcher', desc: '监听者模式' },
 			}
 		}
 	}

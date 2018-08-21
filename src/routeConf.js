@@ -14,6 +14,7 @@ import ListView from 'views/list-view'
 import Swiper from 'views/swiper'
 import Tabs from 'views/tabs'
 import Loading from 'views/loading'
+import ScrollWatcher from 'views/scroll-watcher'
 
 export default {
 	index: 'index',
@@ -34,6 +35,7 @@ export default {
 		'list-view': ListView,
 		'swiper': Swiper,
 		'tabs': Tabs,
-		'loading': Loading
+		'loading': Loading,
+        'scroll-watcher': ScrollWatcher
 	}
 }
