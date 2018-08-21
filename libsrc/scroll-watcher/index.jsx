@@ -10,7 +10,7 @@ export default class ScrollWatcher extends Component {
             children
         } = this.props
         return (
-            <div>
+            <div className="mona-scroll-watcher full">
                 { children }
             </div>
         )
