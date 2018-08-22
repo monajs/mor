@@ -10,13 +10,12 @@
 
 可以满足你各种姿势，给你提供各种体位。
 
-## 联系我
-> 微信：599321378
-
 
 ### 依赖
 
 - [classnames](https://www.npmjs.com/package/classnames)
+- [jsx-control-statements](https://www.npmjs.com/package/jsx-control-statements)
+- [mona-events](https://www.npmjs.com/package/mona-events)
 
 ## 安装
 
@@ -92,6 +91,10 @@ resolve: {
 ```js
 import { Row, Col } from 'mona';
 ```
+
+
+## 联系我
+> 微信：599321378
 
 
 ### TODO

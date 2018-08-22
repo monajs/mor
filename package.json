@@ -1,6 +1,6 @@
 {
     "name": "mor-mobile",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "author": "yangxi",
     "keywords": [
         "mor",
@@ -37,7 +37,6 @@
         "extract-text-webpack-plugin": "^3.0.2",
         "fs-extra": "0.30.0",
         "html-webpack-plugin": "^2.30.1",
-        "jsx-control-statements": "3.1.2",
         "less": "^2.7.3",
         "less-loader": "^4.0.5",
         "open-browser-webpack-plugin": "0.0.5",
@@ -62,6 +61,7 @@
     },
     "dependencies": {
         "classnames": "2.2.5",
+        "jsx-control-statements": "3.1.2",
         "mona-events": "0.0.5"
     }
 }
