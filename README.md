@@ -2,8 +2,9 @@
 
 ✨✨这是 Mona 系列的 React 实现，服务与移动端 H5 产品。
 
-[主页](http://home.mor.monajs.cn)
-[手机访问](http://mor.monajs.cn)
+- [主页](http://home.mor.monajs.cn)
+
+- [手机访问](http://mor.monajs.cn)
 
 ## 大致介绍
 
