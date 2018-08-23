@@ -136,7 +136,7 @@ export default class ListView extends Component {
         clearTimeout(this.timer)
         this.timer = setTimeout(() => {
             this.containerHeight = this.containerHeight || this.container.clientHeight
-            this.sectionHeight = this.sectionHeight || this.wrap.clientHeight
+            this.sectionHeight = this.wrap.clientHeight
             const scrollTop = this.container.scrollTop
             this.headerHeight = this.headerHeight || (enableRefresh ? offset : 0)
             this.footerHeight = this.footerHeight || this.footerWrap.clientHeight
