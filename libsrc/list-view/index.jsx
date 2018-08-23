@@ -140,6 +140,7 @@ export default class ListView extends Component {
             const scrollTop = this.container.scrollTop
             this.headerHeight = this.headerHeight || (enableRefresh ? offset : 0)
             this.footerHeight = this.footerHeight || this.footerWrap.clientHeight
+            
             const bottom = this.sectionHeight - this.containerHeight - scrollTop - this.headerHeight
             if (bottom < (this.footerHeight + bottomEmit)) {
                 this.infinite()
@@ -177,7 +178,7 @@ export default class ListView extends Component {
         } = this.props
         
         // section 区块向上初始化隐藏位移
-        const sectionSty = { top: -offset }
+        const sectionSty = { top: enableRefresh ? -offset : 0 }
         // header 下拉刷新区块高度
         const headerSty = { height: offset }
         
