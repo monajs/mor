@@ -2,6 +2,8 @@
 
 ✨✨这是 Mona 系列的 React 实现，服务与移动端 H5 产品。
 
+[![npm](https://img.shields.io/npm/v/mor-mobile.svg?style=flat-square)](https://www.npmjs.com/package/mor-mobile) [![npm](https://img.shields.io/npm/dt/mor-mobile.svg?style=flat-square)](https://www.npmjs.com/package/mor-mobile) 
+
 - [主页](http://home.mor.monajs.cn)
 
 - [手机访问](http://mor.monajs.cn)
