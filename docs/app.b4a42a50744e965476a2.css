@@ -1512,10 +1512,38 @@ pre {
 .page-index .component-item .header {
   height: 50px;
   font-size: 16px;
+  color: #000;
 }
 .page-index .component-item .child-item {
   height: 50px;
   border-top: 1px solid #e5e5e5;
+}
+.page-index .tag-drop .point-start,
+.page-index .tag-drop .point-end {
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  background-color: #000;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+.page-index .tag-drop .line {
+  width: 2px;
+  height: 5px;
+  background-color: #000;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+.page-index .tag-drop.open .line {
+  height: 0;
+}
+.page-index .tag-drop.open .point-start {
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
+}
+.page-index .tag-drop.open .point-end {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
 }
 .mount-root-modal {
   background: rgba(0, 0, 0, .3);
