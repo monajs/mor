@@ -1,6 +1,6 @@
 {
     "name": "mor-mobile",
-    "version": "0.6.0",
+    "version": "0.6.1",
     "author": "yangxi",
     "keywords": [
         "mor",
@@ -9,7 +9,7 @@
         "react UI",
         "mobile UI"
     ],
-    "description": "react H5 UI组件库",
+    "description": "Mona系列 - React移动端组件库",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/func-star/mor-mobile"
