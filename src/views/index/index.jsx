@@ -30,7 +30,7 @@ export default class Home extends Component {
                     <Drop className="component-item" isOpen={true} onChange={this.open.bind(this, index)} key={index}>
                         <DropTitle className="header flex-center-y">
                             <div className="flex-1">{item.name}</div>
-                            <div className={classNames('tag-drop flex-center flex-direction-y', { 'open': item.open })}>
+                            <div className={classNames('tag-drop flex-center flex-direction-y', { 'open': !item.open })}>
                                 <div className="point-start"></div>
                                 <div className="line"></div>
                                 <div className="point-end"></div>
