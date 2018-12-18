@@ -1,14 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { render } from 'react-dom'
-import Router from 'components/router'
-import FastClick from 'fastclick'
-import { Tool } from 'mona'
+import Home from 'views/pages/home'
 
-import 'app.less'
+import 'style/app.less'
 
-FastClick.attach(document.body)
-
-render(<Router />, document.getElementById('appWrapper'))
-
-// import panel from 'eruda';
-// panel.init();
+render(<Home />, document.getElementById('appWrapper'))

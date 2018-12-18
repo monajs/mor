@@ -1,18 +1,22 @@
-var webpack = require('webpack')
-var path = require('path')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var UglifyJSPlugin = require('uglifyjs-webpack-plugin')
-var config = require('./webpack.base')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
-var fs = require('fs-extra')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const webpack = require('webpack')
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const config = require('./webpack.base')
+// const CopyWebpackPlugin = require('copy-webpack-plugin')
+const fs = require('fs-extra')
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const { log, renderAscii } = require('./core/util')
+const Spinner = require('./core/spinner')
+
+config.mode = 'production'
 
 Object.assign(config.output, {
-	filename: './[name].[chunkhash].js',
-	chunkFilename: './[id].[chunkhash].js',
-	publicPath: '',
-	path: path.resolve(__dirname, '../assets'),
+	filename: '[name].[chunkhash].js',
+	chunkFilename: '[id].[chunkhash].js',
+	publicPath: '/',
+	path: path.resolve(__dirname, '../assets')
 })
 
 config.module.rules = config.module.rules.concat([
@@ -22,53 +26,52 @@ config.module.rules = config.module.rules.concat([
 			use: [
 				'css-loader',
 				'postcss-loader',
-				'less-loader'],
-		}),
+				'less-loader']
+		})
 	},
 	{
 		test: /\.(js|jsx)$/,
 		use: ['babel-loader'],
-		exclude: /node_modules/,
-	},
+		exclude: /node_modules/
+	}
 ])
 
 config.plugins = (config.plugins || []).concat([
 	new webpack.DefinePlugin({
 		DEBUG: false,
 		'process.env': {
-			NODE_ENV: '"production"',
-		},
+			NODE_ENV: '"production"'
+		}
 	}),
-	new UglifyJSPlugin({
-		compress: {
-			warnings: false,
-		},
-	}),
+	new UglifyJSPlugin(),
 	//想看包文件的情况，可以打开
 	//new BundleAnalyzerPlugin(),
-	new ExtractTextPlugin('./[name].[chunkhash].css'),
-	new CopyWebpackPlugin([{
-		from: 'CNAME',
-	}]),
+	new ExtractTextPlugin('[name].[chunkhash].css'),
+	// new CopyWebpackPlugin([{
+	// 	from: 'src/static'
+	// }, {
+	// 	from: 'src/index.html'
+	// }]),
 	
 	new HtmlWebpackPlugin({
 		filename: '../assets/index.html',
-		template: 'src/index.html',
-	}),
+		template: 'src/index.html'
+	})
 ])
 
 fs.remove(path.resolve(__dirname, '../assets'))
-console.log('文件夹assets已删除')
-fs.remove(path.resolve(__dirname, '../docs'));
-console.log('文件夹docs已删除');
+log.info('assets文件夹已被删除')
 
-console.log('正在打包')
-var compiler = webpack(config, (err, stats) => {
-	console.log(err)
-	console.log('打包成功')
-	console.log('[webpack]', stats.toString({}))
-	fs.copy(path.resolve(__dirname, '../assets'), path.resolve(__dirname, '../docs'), function () {
-		console.log('已复制assets到docs');
-	});
+const spinner = new Spinner('正在打包...')
+spinner.start()
+webpack(config, (err, stats) => {
+	spinner.stop()
+	if (err) {
+		log.error(err)
+		return
+	}
+	log.info(stats.toString({}))
+	renderAscii()
+	log.success('打包成功')
 })
 

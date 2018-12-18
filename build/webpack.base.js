@@ -1,44 +1,61 @@
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 module.exports = {
-	cache: true,
 	entry: {
 		app: ['./src/app.jsx']
 	},
 	output: {
-		path: path.resolve(__dirname, './dist'),
+		filename: '[name].js',
 		publicPath: '/',
-		filename: '[name].js'
+		path: path.resolve(__dirname, '../assets')
 	},
+	
 	resolve: {
-		extensions: ['.js', '.jsx'],
+		extensions: ['.js', '.jsx', '.json', 'index.jsx'],
 		modules: [
 			path.resolve(__dirname, '../node_modules'),
 			path.resolve(__dirname, '../src'),
-			path.resolve(__dirname, '../src/components'),
-			path.resolve(__dirname, '../src/static'),
-			path.resolve(__dirname, '../src/views'),
-			path.resolve(__dirname, '../src/style')
+			path.resolve(__dirname, '../src/views')
 		],
 		alias: {
-			'mona': path.resolve(__dirname, '../'),
-			'src': path.resolve(__dirname, '../src'),
 			'react': path.resolve('./node_modules/react'),
-			// 'react': path.resolve('./node_modules/moreact'),
-			'classnames': path.resolve('./node_modules/classnames'),
-			'autoprefixer': path.resolve('./node_modules/autoprefixer'),
 			'react-dom': path.resolve('./node_modules/react-dom')
-			// 'react-dom': path.resolve('./node_modules/moreact-dom'),
 		}
 	},
+	
 	resolveLoader: {
 		modules: ['node_modules']
 	},
-	plugins: [
-		new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/)
-	],
+	
 	module: {
-		rules: []
-	}
+		rules: [{
+			enforce: 'pre', // pre check
+			test: /\.(js|jsx)$/,
+			exclude: /node_modules/,
+			loader: 'eslint-loader',
+			include: [path.join(__dirname, '../src')],
+			options: {
+				// formatter: require('eslint-friendly-formatter'),
+				emitWarning: false
+			}
+		}, {
+			test: /\.(eot|woff2?|ttf|svg)$/,
+			use: [
+				{
+					loader: 'url-loader',
+					options: {
+						limit: 8192
+					}
+				}
+			]
+		}]
+	},
+	
+	plugins: [
+		new StyleLintPlugin({
+			// 正则匹配想要lint监测的文件
+			files: ['src/style/*.less', 'src/views/**/*.less']
+		})
+	]
 }

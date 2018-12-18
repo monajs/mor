@@ -1,46 +1,97 @@
-body, dd, dl, dt, form, h1, h2, h3, h4, h5, h6, html, input, label, li, ol, p, textarea, ul {
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
 	margin: 0;
 	padding: 0;
-	-webkit-text-size-adjust: none;
+	border: 0;
+	outline: 0;
+	/* font-size:100%; */
+	vertical-align: baseline;
+	background: transparent;
 }
 
-article, aside, details, footer, header, nav, section {
+html {
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	line-height: @line-height;
+	font-family: @font-family;
+	font-size: @font-size;
+	color: @color;
+}
+
+html, body {
+	height: 100%;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
-em, i {
-	font-style: normal;
-}
-
-img {
-	border: none;
-	vertical-align: middle;
-}
-
-ol, ul {
+nav ul {
 	list-style: none;
 }
 
-input[type=checkbox], input[type=email], input[type=number], input[type=password], input[type=radio], input[type=search], input[type=tel], input[type=text] {
-	vertical-align: middle;
-	outline: 0;
-	color: #424242;
-	-webkit-appearance: none;
-	-webkit-user-select: text
+blockquote, q {
+	quotes: none;
 }
 
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-	color: #999;
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
 }
 
-select, textarea {
-	outline: 0;
-	color: #424242;
-	-webkit-appearance: none;
+a {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	text-decoration: none;
+	color: @primary-color;
+	transition: color 0.3s ease;
+
+	&:hover {
+		color: @primary-color;
+	}
 }
 
-textarea {
-	-webkit-user-select: text;
+/* change colours to suit your needs */
+ins {
+	background-color: #ff9;
+	color: #000;
+	text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+	background-color: #ff9;
+	color: #000;
+	font-style: italic;
+	font-weight: bold;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+	border-bottom: 1px dotted;
+	cursor: help;
 }
 
 table {
@@ -48,46 +99,66 @@ table {
 	border-spacing: 0;
 }
 
+/* change border colour to suit your needs */
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #f5f5f5;
+	margin: 1em 0;
+	padding: 0;
+}
+
+button, input, select, textarea {
+	/** vertical-align:middle; */
+	/** font-size:@text-normal; */
+	outline: 0;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+}
+
+input[type=checkbox],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=radio],
+input[type=search],
+input[type=tel],
+input[type=text],
+textarea {
+	-webkit-user-select: text;
+	-webkit-appearance: none;
+}
+
+input[type=button],
+select {
+	-webkit-appearance: none;
+}
+
+/* stylelint-disable no-descending-specificity */
+textarea::-webkit-input-placeholder,
+input::-webkit-input-placeholder {
+	color: rgba(0, 0, 0, 0.25);
+}
+
+textarea:-moz-placeholder,
+input:-moz-placeholder {
+	color: rgba(0, 0, 0, 0.25);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+/* stylelint-disable */
+
 * {
-	-webkit-user-select: none;
-	-webkit-tap-highlight-color: transparent;
-	-webkit-touch-callout: none;
-}
-
-*, :after, :before {
-	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-}
-
-body {
-	font: 400 14px/1.5 Arial, sans-serif;
-	background-color: #f6f6f6;
-	overflow-x: hidden;
-	-webkit-text-size-adjust: none;
-	font-size: 14px;
-}
-
-a, body {
-	color: #5e5e5e;
-}
-
-a {
-	text-decoration: none;
-}
-
-[data-dpr="2"] body {
-	font-size: 28px;
-}
-
-[data-dpr="3"] body {
-	font-size: 42px;
-}
-
-html, body, #views {
-	width: 100%;
-	height: 100%;
-}
-
-pre {
-	white-space: pre-wrap;
 }
