@@ -1,0 +1,31 @@
+.layout-wrap, .layout-wrap-1 {
+	.layout-item {
+		height: 40px;
+		padding: 3px 5px;
+		background: #8bc34a;
+		color: #fff;
+		font-size: 14px;
+		&:nth-child(odd) {
+			background: #03a9f4;
+		}
+	}
+	.layout-item-1 {
+		.inner {
+			height: 40px;
+			background: #8bc34a;
+			padding: 3px 5px;
+			color: #fff;
+			font-size: 14px;
+		}
+		&:nth-child(odd) {
+			.inner {
+				background: #03a9f4;
+			}
+		}
+	}
+}
+
+.layout-wrap-1 {
+	height: 120px;
+	border: 1px solid #03a9f4;
+}
