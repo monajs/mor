@@ -5,7 +5,7 @@ import { hot } from 'react-hot-loader'
 
 class RouterEntry extends Component {
 	routerConf = routerConf
-	
+
 	render () {
 		return (
 			<Router config={this.routerConf} />

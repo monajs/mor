@@ -1,6 +1,6 @@
 {
-	"name": "mor-mobile",
-	"version": "0.6.2",
+	"name": "@monajs/mor",
+	"version": "1.0.0",
 	"author": "yangxi",
 	"keywords": [
 		"mor",
@@ -39,12 +39,13 @@
 		"@babel/core": "^7.1.6",
 		"@babel/plugin-proposal-class-properties": "^7.1.0",
 		"@babel/preset-env": "^7.1.0",
-		"@babel/preset-react": "^7.0.0",
 		"@babel/preset-flow": "^7.0.0",
+		"@babel/preset-react": "^7.0.0",
 		"@commitlint/cli": "^7.2.1",
 		"@commitlint/config-conventional": "^7.1.2",
 		"babel-eslint": "^10.0.1",
 		"babel-loader": "^8.0.4",
+		"babel-plugin-import": "^1.11.0",
 		"babel-plugin-jsx-control-statements": "^3.2.8",
 		"babel-plugin-transform-object-assign": "^6.22.0",
 		"chalk": "^2.4.1",
@@ -62,6 +63,7 @@
 		"less": "^3.8.1",
 		"less-loader": "^4.1.0",
 		"loader-core": "^0.1.0",
+		"moreact-router": "^0.4.0",
 		"open-browser-webpack-plugin": "0.0.5",
 		"postcss-cssnext": "^3.1.0",
 		"postcss-import": "^12.0.0",
@@ -82,7 +84,6 @@
 		"webpack-dev-server": "^3.1.9"
 	},
 	"dependencies": {
-		"classnames": "^2.2.6",
-		"moreact-router": "^0.4.0"
+		"classnames": "^2.2.6"
 	}
 }

@@ -1,0 +1,98 @@
+/* stylelint-disable property-no-unknown */
+.mor-list-view {
+	position: relative;
+	overflow: auto;
+	overflow-scrolling: touch;
+	-webkit-overflow-scrolling: touch;
+	touch-action: auto;
+}
+
+/* stylelint-disable */
+
+.mor-list-view-section {
+	&.mor-list-view-transition {
+		transition: transform @listViewAnimDuration ease-in-out;
+	}
+
+	.mor-list-view-refresh {
+		font-size: @listViewRefreshFontSize;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.mor-list-view-refresh-icon {
+		width: 65px;
+		height: 15px;
+		background: data-uri('../resource/loading.png') 0 0 no-repeat;
+		background-size: 5000% 100%;
+		&.animate {
+			animation: morListViewGif steps(49) 2s infinite both;
+		}
+	}
+
+	.mor-list-view-infinite {
+		height: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.mor-list-view-infinite-icon {
+		background: data-uri('../resource/infinite.png') no-repeat center;
+		height: 18px;
+		width: 18px;
+		margin-right: 12px;
+		background-size: cover;
+		animation: morListViewRotation 1.5s infinite linear;
+	}
+
+	.mor-list-view-infinite-text {
+		font-size: 13px;
+		color: #666;
+	}
+}
+
+@keyframes morListViewGif {
+	from {
+		background-position: 0;
+	}
+
+	to {
+		background-position: 100%;
+	}
+}
+
+@-webkit-keyframes morListViewGif {
+	from {
+		background-position: 0;
+	}
+
+	to {
+		background-position: 100%;
+	}
+}
+
+@keyframes morListViewRotation {
+	from {
+		transform-origin: 50% 50%;
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform-origin: 50% 50%;
+		transform: rotate(1turn);
+	}
+}
+
+@-webkit-keyframes morListViewRotation {
+	from {
+		transform-origin: 50% 50%;
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform-origin: 50% 50%;
+		transform: rotate(1turn);
+	}
+}

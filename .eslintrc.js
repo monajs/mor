@@ -24,8 +24,8 @@ module.exports = {
 			// default to "createReactClass"
 			'createClass': 'createReactClass',
 			'pragma': 'React',  // Pragma to use, default to "React"
-			'version': '16.5', // React version, default to the latest React stable release
-			// 'flowVersion': '0.53' // Flow version
+			'version': '16.6', // React version, default to the latest React stable release
+			'flowVersion': '0.87' // Flow version
 		},
 		// The names of any functions used to wrap the
 		// propTypes object, e.g. `forbidExtraProps`.
@@ -34,7 +34,7 @@ module.exports = {
 		'propWrapperFunctions': ['forbidExtraProps']
 	},
 	'rules': {
-		'jsx-quotes': [2, 'prefer-single'],
+		'jsx-quotes': 0,
 		'react/jsx-no-undef': 0,
 		'quotes': [2, 'single'],
 		'semi': [2, 'never'],

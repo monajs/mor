@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
-import Home from 'views/pages/home'
+import Router from 'router'
 
 import 'style/app.less'
 
-render(<Home />, document.getElementById('appWrapper'))
+render(<Router />, document.getElementById('appWrapper'))

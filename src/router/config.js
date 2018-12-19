@@ -1,5 +1,6 @@
 import DefaultLayout from 'views/layout/default'
 import Home from 'pages/home'
+import ListView from 'pages/list-view'
 
 export default {
 	index: 'home',
@@ -11,7 +12,13 @@ export default {
 			routes: {
 				'home': Home
 			}
+		},
+		{
+			layout: DefaultLayout,
+			routes: {
+				'list-view': ListView
+			}
 		}
 	]
-	
+
 }

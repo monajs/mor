@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Header from './header'
 
 export default class DefaultLayout extends Component {
 	render () {
@@ -8,7 +7,6 @@ export default class DefaultLayout extends Component {
 		/*eslint-disable*/
 		return (
 			<div>
-				<Header />
 				{children}
 			</div>
 		)

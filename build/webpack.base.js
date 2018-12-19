@@ -10,7 +10,7 @@ module.exports = {
 		publicPath: '/',
 		path: path.resolve(__dirname, '../assets')
 	},
-	
+
 	resolve: {
 		extensions: ['.js', '.jsx', '.json', 'index.jsx'],
 		modules: [
@@ -19,15 +19,16 @@ module.exports = {
 			path.resolve(__dirname, '../src/views')
 		],
 		alias: {
+			'mor': path.resolve(__dirname, '../'),
 			'react': path.resolve('./node_modules/react'),
 			'react-dom': path.resolve('./node_modules/react-dom')
 		}
 	},
-	
+
 	resolveLoader: {
 		modules: ['node_modules']
 	},
-	
+
 	module: {
 		rules: [{
 			enforce: 'pre', // pre check
@@ -51,7 +52,7 @@ module.exports = {
 			]
 		}]
 	},
-	
+
 	plugins: [
 		new StyleLintPlugin({
 			// 正则匹配想要lint监测的文件
