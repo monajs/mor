@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
-import { Mask, Toast } from 'mor'
+import { Mask, Loading } from 'mor'
 
 export default class Home extends Component {
 	visible = false
 	close = () => {
-		// this.visible = !this.visible
-		// this.setState({})
-		Toast.info({
-			message: '房价快'
-		})
+		Loading.show({})
+		setTimeout(Loading.hide, 1000)
 	}
 	render () {
 		return (
