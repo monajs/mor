@@ -1,6 +1,6 @@
 .mor-mask {
 	position: fixed;
-	z-index: 499;
+	z-index: @maskZIndex;
 	opacity: 0;
 	top: 0;
 	left: 0;
@@ -10,7 +10,7 @@
 		position: absolute;
 		content: '';
 		display: block;
-		background: rgba(0, 0, 0, 0.5);
+		background-color: @maskBgColor;
 		top: 0;
 		left: 0;
 		right: 0;

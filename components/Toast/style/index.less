@@ -1,0 +1,41 @@
+.mor-toast {
+	padding: 5px;
+	position: fixed;
+	background-color: @toastBgColor;
+	border-radius: @toastBorderRadius;
+	text-align: center;
+	font-size: @toastFontSize;
+	z-index: @toastConZIndex;
+	color: @toastColor;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	.mor-toast-wrap {
+		padding: 5px 10px;
+		.mor-toast-icon {
+			background: no-repeat center;
+			width: @toastIconWidth;
+			height: @toastIconHeight;
+			background-size: cover;
+			margin: 3px auto 10px;
+		}
+		&.success, &.error, &.warning {
+			min-width: 100px;
+		}
+		&.success {
+			.mor-toast-icon {
+				background-image: data-uri("../resource/success.png");
+			}
+		}
+		&.error {
+			.mor-toast-icon {
+				background-image: data-uri("../resource/error.png");
+			}
+		}
+		&.warning {
+			.mor-toast-icon {
+				background-image: data-uri("../resource/warning.png");
+			}
+		}
+	}
+}

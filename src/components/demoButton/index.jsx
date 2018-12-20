@@ -1,7 +1,7 @@
 // @flow
 /**
  * @fileoverview DemoButton 组件
- * @author yangxi | yangxi@babytree-inc.com
+ * @author yangxi | 599321378@qq.com
  */
 
 import * as React from 'react'
