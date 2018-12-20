@@ -26,27 +26,27 @@ class Toast extends React.PureComponent<Props, State> {
 	static toastRef: { current: null | Toast } = React.createRef()
 
 	static config (options: { [string]: any }) {
-		if (!this.node) {
-			this.node = document.createElement('div')
+		if (!Toast.node) {
+			Toast.node = document.createElement('div')
 		}
 		options = Object.assign({
 			type: 'info',
 			duration: 2000
 		}, options)
-		render(<Toast ref={this.toastRef} {...options} />, this.node)
-		this.toastRef.current && this.toastRef.current.show()
+		render(<Toast ref={Toast.toastRef} {...options} />, Toast.node)
+		Toast.toastRef.current && Toast.toastRef.current.show()
 	}
 
 	static success (options: { [string]: any }) {
-		this.config(Object.assign({}, options, { type: 'success' }))
+		Toast.config(Object.assign({}, options, { type: 'success' }))
 	}
 
 	static error (options: { [string]: any }) {
-		this.config(Object.assign({}, options, { type: 'error' }))
+		Toast.config(Object.assign({}, options, { type: 'error' }))
 	}
 
 	static info (options: { [string]: any }) {
-		this.config(options)
+		Toast.config(options)
 	}
 
 	constructor (props: Props) {
