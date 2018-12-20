@@ -10,7 +10,7 @@ import { createPortal } from 'react-dom'
 type Props = {
 	rootNode?: HTMLElement,                       // 节点挂载的位置  选填
 	visible: boolean,                             // 节点是否进行挂载  必填
-	closeDelay: ?number,                          // 节点延迟销毁的时间  选填
+	closeDelay?: ?number,                          // 节点延迟销毁的时间  选填
 	children: React.Node,                         // 子节点内容  必填
 	onMounted?: () => mixed,                      // 组件挂载结束后的执行回调  选填
 	onUnmount?: () => mixed,                      // 组件卸载开始前的执行回调  选填

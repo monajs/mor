@@ -249,6 +249,20 @@ class ListView extends React.PureComponent<Props, State> {
 	}
 
 	/**
+	 * 渲染头部
+	 * @returns {React.node}
+	 */
+	renderHeader = (): React.Node => {
+		const { offset } = this.props
+		const headerStyle = { height: offset }
+		return (
+			<header className="mor-list-view-refresh" style={headerStyle}>
+				<div ref={this.refreshIconRef} className="mor-list-view-refresh-icon" />
+			</header>
+		)
+	}
+
+	/**
 	 * 渲染底部
 	 * @returns {React.node}
 	 */
@@ -284,7 +298,6 @@ class ListView extends React.PureComponent<Props, State> {
 		// section 区块向上初始化隐藏位移
 		const sectionStyle = { marginTop: enableRefresh ? -offset : 0 }
 		// header 下拉刷新区块高度
-		const headerStyle = { height: offset }
 
 		return (
 			<Hammer
@@ -297,10 +310,7 @@ class ListView extends React.PureComponent<Props, State> {
 				{...optionalProps}>
 				<section className="mor-list-view-section" ref={this.wrapRef} style={sectionStyle}>
 					{
-						enableRefresh &&
-						<header className="mor-list-view-refresh" style={headerStyle}>
-							<div ref={this.refreshIconRef} className="mor-list-view-refresh-icon" />
-						</header>
+						enableRefresh && this.renderHeader()
 					}
 					{children}
 					{

@@ -5,7 +5,7 @@
  */
 
 import * as React from 'react'
-import MountRoot from '../mountRoot'
+import MountRoot from '../MountRoot'
 import classnames from 'classnames'
 
 type Props = {
