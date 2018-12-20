@@ -1,7 +1,7 @@
 // @flow
 /**
  * @fileoverview Hammer 组件
- * @author yangxi | yangxi@babytree-inc.com
+ * @author yangxi | 599321378@qq.com
  */
 
 import * as React from 'react'
@@ -15,15 +15,15 @@ type Props = {
 	style?: {},                                                   // 节点 style 样式  选填
 	onMounted?: () => mixed,                                      // 组件挂载成功后的执行回调  选填
 	onUnmount?: () => mixed,                                      // 组件卸载开始前的执行回调  选填
-	touchstart?: eventType,
-	pan?: eventType,
-	panstart?: eventType,
-	panmove?: eventType,
-	panend?: eventType,
-	pancancel?: eventType,
-	press?: eventType,
-	tap?: eventType,
-	scroll?: eventType,
+	touchstart?: eventType,                                       // 手指触摸时的触发事件  选填
+	pan?: eventType,                                              // 手势的周期事件  选填
+	panstart?: eventType,                                         // touchmove的第一帧事件  选填
+	panmove?: eventType,                                          // touchmove的除第一帧和最后一帧以外的事件  选填
+	panend?: eventType,                                           // touchmove的最后一帧以外的事件  选填
+	pancancel?: eventType,                                        // 取消手势的触发事件  选填
+	press?: eventType,                                            // 长按事件  选填
+	tap?: eventType,                                              // 点击事件  选填
+	scroll?: eventType,                                           // 滚动事件  选填
 }
 
 type State = {}

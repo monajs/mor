@@ -4,15 +4,13 @@
 	"author": "yangxi",
 	"keywords": [
 		"mor",
-		"mor-mobile",
-		"react H5",
-		"react UI",
-		"mobile UI"
+		"react",
+		"react-component"
 	],
 	"description": "Mona系列 - React移动端组件库",
 	"repository": {
 		"type": "git",
-		"url": "git+fd.git"
+		"url": "git+https://github.com/monajs/mor.git"
 	},
 	"files": [
 		"lib"
@@ -21,6 +19,7 @@
 	"scripts": {
 		"start": "node ./build/webpack.dev.js",
 		"build": "node ./build/webpack.build.js",
+		"babel": "rm -rf lib && BABEL_ENV=prodution && babel components --out-dir lib --copy-files",
 		"lint": "eslint --fix --ext .js,.jsx src && stylelint ./src/style/*.less ./src/views/**/*.less --fix"
 	},
 	"husky": {
@@ -31,9 +30,9 @@
 	},
 	"license": "ISC",
 	"bugs": {
-		"url": "fd/issues"
+		"url": "https://github.com/monajs/mor/issues"
 	},
-	"homepage": "fd#readme",
+	"homepage": "https://github.com/monajs/mor#readme",
 	"devDependencies": {
 		"@babel/cli": "^7.1.2",
 		"@babel/core": "^7.1.6",

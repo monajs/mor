@@ -8,3 +8,4 @@ package-lock.json
 assets
 .idea
 .vscode
+lib
